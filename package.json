@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "cross-env NODE_ENV=development API_SERVER_ROOT=\"http://localhost:3002/public\" webpack-dev-server",
-    "build": "npm run clean && webpack",
+    "build": "npm run clean && webpack && echo tuckbot.tv > ./dist/CNAME",
     "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
