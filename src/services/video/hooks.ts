@@ -22,6 +22,7 @@ export function useRedditVideo(redditPostId: string): RedditVideoHookData {
       try {
         const res = await fetchVideo(redditPostId);
         setVideoData(res);
+        setErrorMessage(null);
       } catch (e) {
         setVideoData(null);
         setErrorMessage(e.message);

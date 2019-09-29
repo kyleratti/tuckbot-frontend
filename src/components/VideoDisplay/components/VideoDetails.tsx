@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 export interface VideoDetailsProps {
   redditPostId: string;
@@ -12,7 +13,7 @@ const VideoDetails: React.FC<Props> = ({ redditPostId }) => (
         <a href={"https://reddit.com/" + redditPostId}>see reddit post</a>
       </li>
       <li>
-        <a href="#">watch random video</a>
+        <Link to="/watch/random">watch random video</Link>
       </li>
     </ul>
   </div>

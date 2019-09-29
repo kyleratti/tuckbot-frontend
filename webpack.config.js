@@ -4,13 +4,17 @@ const webpack = require("webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+require("dotenv").config();
+
 const isDev = process.env["NODE_ENV"] === "development";
 
 const PUBLIC_PATH = "/tuckbot-frontend/";
+const API_SERVER_ROOT = process.env.API_SERVER_ROOT;
 const SRC = resolve("src");
 const DIST = resolve("dist");
 
 console.log("Webpack build", isDev ? "[development]" : "[production]");
+console.log("Targeting API server at", API_SERVER_ROOT);
 
 module.exports = {
   mode: isDev ? "development" : "production",
@@ -89,7 +93,8 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(isDev ? "development" : "production")
-      }
+      },
+      API_SERVER_ROOT: JSON.stringify(API_SERVER_ROOT)
     }),
 
     new HtmlWebpackPlugin({

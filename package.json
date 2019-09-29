@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "start": "cross-env NODE_ENV=development API_SERVER_ROOT=\"http://localhost:3002/public\" webpack-dev-server",
     "build": "npm run clean && webpack",
     "deploy": "npm run build && gh-pages -d dist"
   },
@@ -29,8 +29,10 @@
   "devDependencies": {
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
+    "@types/react-router-dom": "^5.1.0",
     "cross-env": "^6.0.0",
     "css-loader": "^3.2.0",
+    "dotenv": "^8.1.0",
     "file-loader": "^4.2.0",
     "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",

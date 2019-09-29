@@ -3,7 +3,8 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import ContactPage from "./pages/ContactPage";
 import TuckerPage from "./pages/TuckerPage";
 import WatchPage from "./pages/WatchPage/WatchPage";
-import WatchVideoPage from "./pages/WatchVideoPage/WatchVideoPage";
+import WatchVideoPage from "./pages/WatchVideoPage";
+import WatchRandomPage from "./pages/WatchRandomPage";
 
 const Routes: React.FunctionComponent = () => (
   <Switch>
@@ -13,7 +14,9 @@ const Routes: React.FunctionComponent = () => (
     <Route path="/tucker" exact component={TuckerPage} />
 
     <Route path="/watch" exact component={WatchPage} />
+    <Route path="/watch/random" exact component={WatchRandomPage} />
     <Route path="/watch/:redditPostId" exact component={WatchVideoPage} />
+
     <Redirect to="/" />
   </Switch>
 );

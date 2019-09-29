@@ -1,12 +1,13 @@
-const API_ROOT = "http://localhost:3002/public";
+const API_ROOT = `${API_SERVER_ROOT}/video`;
 
 export interface VideoResponse {
   redditPostId: string;
   redditPostTitle: string;
   mirrorUrl: string;
 }
+
 export async function fetchVideo(redditPostId: string): Promise<VideoResponse> {
-  const res = await fetch(`${API_ROOT}/video/${redditPostId}`);
+  const res = await fetch(`${API_ROOT}/${redditPostId}`);
 
   if (res.status !== 200) {
     let errorMessage: string;
@@ -31,4 +32,8 @@ export async function fetchVideo(redditPostId: string): Promise<VideoResponse> {
   } catch (e) {
     throw new Error("Server returned an invalid result.");
   }
+}
+
+export async function fetchRandom(): Promise<VideoResponse> {
+  return fetchVideo("random");
 }
