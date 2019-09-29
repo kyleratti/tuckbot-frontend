@@ -12,7 +12,7 @@ const VideoDetails: React.FC<Props> = ({ redditPostId }) => (
         <a href={"https://reddit.com/" + redditPostId}>see reddit post</a>
       </li>
       <li>
-        <a href="#">open random video</a>
+        <a href="#">watch random video</a>
       </li>
     </ul>
   </div>

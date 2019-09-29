@@ -1,4 +1,5 @@
 import * as React from "react";
+const poster = require("@/img/poster.png");
 
 export interface VideoPlayerProps {
   mirrorUrl: string;
@@ -6,7 +7,14 @@ export interface VideoPlayerProps {
 
 type Props = VideoPlayerProps;
 const VideoPlayer: React.FC<Props> = ({ mirrorUrl }) => (
-  <video controls poster="/img/poster.jpg" src={mirrorUrl}></video>
+  <div className="videoPlayer">
+    <video
+      controls
+      poster={poster}
+      src={mirrorUrl}
+      controlsList="nodownload"
+    ></video>
+  </div>
 );
 
 export default VideoPlayer;

@@ -1,4 +1,6 @@
 import * as React from "react";
+import { setTitle } from "../../services/title/hooks";
+import { useRedditVideo } from "../../services/video/hooks";
 import VideoDetails from "./components/VideoDetails";
 import VideoPlayer from "./components/VideoPlayer";
 import VideoTitle from "./components/VideoTitle";
@@ -9,69 +11,32 @@ export interface VideoDetailsProps {
 
 type Props = VideoDetailsProps;
 
-class VideoDisplay extends React.Component<Props> {
-  state = {
-    error: null,
-    isLoaded: false,
-    redditPostId: null,
-    redditPostTitle: null,
-    mirrorUrl: null
-  };
+const VideoDisplay: React.FunctionComponent<Props> = ({ redditPostId }) => {
+  const { isLoading, errorMessage, videoResponse } = useRedditVideo(
+    redditPostId
+  );
 
-  constructor(props) {
-    super(props);
+  let title = videoResponse ? videoResponse.redditPostTitle : "Watch";
 
-    this.state.redditPostId = props.redditPostId;
+  setTitle(title);
+
+  if (errorMessage) {
+    return <div>Error: {errorMessage}</div>; // TODO: convert to component
+  } else if (isLoading) {
+    return <div>Loading...</div>; // TODO: convert to component
+  } else if (videoResponse) {
+    const { redditPostTitle, mirrorUrl, redditPostId } = videoResponse;
+
+    return (
+      <React.Fragment>
+        <VideoTitle title={redditPostTitle} />
+        <VideoPlayer mirrorUrl={mirrorUrl} />
+        <VideoDetails redditPostId={redditPostId} />
+      </React.Fragment>
+    );
+  } else {
+    return <div>Not loading</div>;
   }
-
-  componentDidMount() {
-    fetch("http://localhost:3002/public/video/" + this.state.redditPostId)
-      .then(res => res.json())
-      .then(
-        result => {
-          if (result.status && result.status.status === 200) {
-            this.setState({
-              redditPostId: result.data.redditPostId,
-              redditPostTitle: result.data.redditPostTitle,
-              mirrorUrl: result.data.mirrorUrl
-            });
-          } else {
-            this.setState({
-              error: {
-                message: "Error retrieving video"
-              }
-            });
-          }
-
-          this.setState({
-            isLoaded: true
-          });
-        },
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      );
-  }
-
-  render() {
-    const { error, isLoaded } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <React.Fragment>
-          <VideoTitle title={this.state.redditPostTitle} />
-          <VideoPlayer mirrorUrl={this.state.mirrorUrl} />
-          <VideoDetails redditPostId={this.state.redditPostId} />
-        </React.Fragment>
-      );
-    }
-  }
-}
+};
 
 export default VideoDisplay;

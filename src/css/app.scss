@@ -42,3 +42,38 @@ video {
   min-width: 500px;
   min-height: 260px;
 }
+
+#main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tuckie-boy {
+  cursor: wait;
+
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.wrapper {
+  //display: grid;
+  //grid-auto-flow: row;
+  //gap: 0.1em;
+}
+
+header {
+  text-align: center;
+  font-family: "Courier New";
+  letter-spacing: 0.2ch;
+  text-transform: uppercase;
+}
+
+.page-container {
+}
+
+.content {
+  text-align: center;
+}
