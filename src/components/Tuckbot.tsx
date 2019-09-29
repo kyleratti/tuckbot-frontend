@@ -8,7 +8,7 @@ class Tuckbot extends React.Component {
     numClicks: 0
   };
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
 
     this.state = { numClicks: 0 };
