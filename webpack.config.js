@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const isDev = process.env["NODE_ENV"] === "development";
 
-const PUBLIC_PATH = "/tuckbot-frontend/";
+const PUBLIC_PATH = "/";
 const API_SERVER_ROOT = process.env.API_SERVER_ROOT;
 const SRC = resolve("src");
 const DIST = resolve("dist");
