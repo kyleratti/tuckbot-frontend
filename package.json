@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "cross-env NODE_ENV=development API_SERVER_ROOT=\"http://localhost:3002/public\" webpack-dev-server",
+    "dev": "npm run start",
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "npm run clean && webpack && echo tuckbot.tv > ./dist/CNAME",
     "deploy": "npm run build && gh-pages -d dist"
   },
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/kyleratti/tuckbot-frontend#readme",
   "dependencies": {
+    "dotenv-webpack": "^1.7.0",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
     "react-router-dom": "^5.1.1",

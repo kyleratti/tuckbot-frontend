@@ -1,6 +1,7 @@
 import * as React from "react";
 import { setTitle } from "../../services/title/hooks";
 import { useRedditVideo } from "../../services/video/hooks";
+import Loading from "../Loading";
 import VideoDetails from "./components/VideoDetails";
 import VideoPlayer from "./components/VideoPlayer";
 import VideoTitle from "./components/VideoTitle";
@@ -21,17 +22,16 @@ const VideoDisplay: React.FunctionComponent<Props> = ({ redditPostId }) => {
   setTitle(title);
 
   if (errorMessage) {
-    return <div>Error: {errorMessage}</div>; // TODO: convert to component
+    return <div>Error loading: {errorMessage}</div>; // TODO: convert to component
   } else if (isLoading) {
-    return <div>Loading...</div>; // TODO: convert to component
+    return <Loading>Loading...</Loading>; // TODO: convert to component
   } else if (videoResponse) {
     const { redditPostTitle, mirrorUrl, redditPostId } = videoResponse;
 
     return (
       <React.Fragment>
-        <VideoTitle title={redditPostTitle} />
+        <VideoTitle title={redditPostTitle} redditPostId={redditPostId} />
         <VideoPlayer mirrorUrl={mirrorUrl} />
-        <VideoDetails redditPostId={redditPostId} />
       </React.Fragment>
     );
   } else {

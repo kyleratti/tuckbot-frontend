@@ -1,14 +1,15 @@
 import * as React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ContactPage from "./pages/ContactPage";
+import HomePage from "./pages/HomePage";
 import TuckerPage from "./pages/TuckerPage";
 import WatchPage from "./pages/WatchPage/WatchPage";
-import WatchVideoPage from "./pages/WatchVideoPage";
 import WatchRandomPage from "./pages/WatchRandomPage";
+import WatchVideoPage from "./pages/WatchVideoPage";
 
 const Routes: React.FunctionComponent = () => (
   <Switch>
-    <Route path="/" exact component={WatchPage} />
+    <Route path="/" exact component={HomePage} />
 
     <Route path="/contact" exact component={ContactPage} />
     <Route path="/tucker" exact component={TuckerPage} />

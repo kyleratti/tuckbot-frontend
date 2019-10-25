@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useHistory } from "react-router-dom";
+import Loading from "../../components/Loading";
+import PageContainer from "../../components/PageContainer";
 import { useRedditVideo } from "../../services/video/hooks";
 
 const WatchRandomPage: React.FunctionComponent = () => {
@@ -7,9 +9,13 @@ const WatchRandomPage: React.FunctionComponent = () => {
   const history = useHistory();
 
   if (errorMessage) {
-    return <div>{errorMessage}</div>;
+    return <PageContainer>Error: {errorMessage}</PageContainer>;
   } else if (!videoResponse) {
-    return <div>Loading</div>;
+    return (
+      <PageContainer>
+        <Loading>Loading random video, please wait...</Loading>
+      </PageContainer>
+    );
   } else {
     setTimeout(() => {
       history.replace(`/watch/${videoResponse.redditPostId}`);

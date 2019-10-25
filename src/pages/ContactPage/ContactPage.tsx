@@ -1,17 +1,17 @@
 import * as React from "react";
 import PageContainer from "../../components/PageContainer";
 
-const ContactPage: React.FC = () => (
+const ContactPage: React.FunctionComponent = () => (
   <PageContainer>
     <div>
-      <dl>
+      <dl className="inline-list">
         <dt>General Inquiries</dt>
         <dd>
-          <a href="mailto:inqury@placeholder">inqury@placeholder</a>
+          <a href="mailto:inquire@tuckbot.tv">inquire@tuckbot.tv</a>
         </dd>
         <dt>Takedown Requests</dt>
         <dd>
-          <a href="mailto:takedown@placeholder">takedown@placeholder</a>
+          <a href="mailto:takedown@tuckbot.tv">takedown@tuckbot.tv</a>
         </dd>
       </dl>
     </div>

@@ -4,9 +4,12 @@ const webpack = require("webpack");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-require("dotenv").config();
+const dotenv = require("dotenv");
+const DotenvWebpack = require("dotenv-webpack");
 
 const isDev = process.env["NODE_ENV"] === "development";
+
+dotenv.config();
 
 const PUBLIC_PATH = "/";
 const API_SERVER_ROOT = process.env.API_SERVER_ROOT;
@@ -89,6 +92,10 @@ module.exports = {
   plugins: [
     isDev && new webpack.NamedModulesPlugin(),
     isDev && new webpack.HotModuleReplacementPlugin(),
+
+    new DotenvWebpack({
+      silent: false
+    }),
 
     new webpack.DefinePlugin({
       "process.env": {

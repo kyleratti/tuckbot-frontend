@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 
 const TUCKER_PETS = 3;
 
-class Tuckbot extends React.Component {
+class Heading extends React.Component {
   state = {
     numClicks: 0
   };
@@ -35,11 +35,11 @@ class Tuckbot extends React.Component {
           <span id="tuckie-boy" onClick={this.handleClick}>
             🐶
           </span>
-          Tuckbot
+          Tuckbot<span className="dot-tv">.tv</span>
         </h1>
       </header>
     );
   }
 }
 
-export default Tuckbot;
+export default Heading;

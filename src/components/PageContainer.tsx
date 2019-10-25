@@ -1,12 +1,16 @@
 import * as React from "react";
-import Tuckbot from "./Tuckbot";
+import Footing from "./Footing";
+import Heading from "./Heading";
 
 const PageContainer: React.FunctionComponent = ({ children }) => (
   <div className="wrapper">
-    <Tuckbot />
+    <Heading />
+
     <div className="page-container">
       <div className="content">{children}</div>
     </div>
+
+    <Footing />
   </div>
 );
 

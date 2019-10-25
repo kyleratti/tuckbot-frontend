@@ -1,46 +1,92 @@
-$colorPrimary: #afb0b2;
-$colorSecondary: #d65656;
-$colorThree: #3d70ab;
-$colorFour: #767676;
-$colorFive: #2b2b2b;
+$colorPrimary: #f2d377;
+$colorSecondary: #bf6a4b;
+$colorLinks: #f29c6b;
+$colorFour: #b13323;
+$colorBackground: #1a3140;
+
+$sourceAlpha: 0.85;
+
+html {
+  height: 100%;
+}
 
 body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: $colorBackground;
+
   font-family: "Arial", Arial, Helvetica, sans-serif;
-  background-color: $colorFive;
   color: $colorPrimary;
+  place-items: center;
+}
+
+h2 small {
+  font-size: 0.7em;
+  font-weight: normal;
+}
+
+h2 small a {
+  color: rgba($colorFour, $sourceAlpha);
+}
+
+h2 small a:hover {
+  color: rgba($colorSecondary, $sourceAlpha);
 }
 
 a,
 a:visited {
-  color: $colorThree;
+  color: rgba($colorLinks, 0.8);
   font-weight: bold;
   text-decoration: none;
 }
 
 a:hover {
   color: $colorSecondary;
+  text-align: center;
+  text-shadow: 0 0 100px red;
 }
 
 .videoTitle h2 {
-  color: $colorSecondary;
+  color: $colorPrimary;
+  margin: 0.25em;
 }
 
-.videoDetails ul {
+.inline-list {
   list-style-type: none;
+  padding: 0;
 }
 
-.videoDetails ul li {
+.inline-list li {
   display: inline-block;
   margin: 0.5em;
 }
 
+.inline-list dt:before {
+  content: "";
+  display: block;
+}
+.inline-list dt,
+.inline-list dd {
+  display: inline;
+}
+
+.inline-list dt:after {
+  content: ":";
+}
+
+.inline-list dd {
+  margin-left: 0.75em;
+}
+
 video {
-  border-bottom: 2px solid $colorSecondary;
-  padding: 0.1em;
-  padding-bottom: 0;
-  background-color: black;
-  min-width: 500px;
-  min-height: 260px;
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 85%;
+  max-height: 70vh;
+  background-color: rgb(10.2%, 19.2%, 35%);
+  object-fit: cover;
 }
 
 #main {
@@ -50,7 +96,7 @@ video {
 }
 
 #tuckie-boy {
-  cursor: wait;
+  cursor: grab;
 
   -moz-user-select: none;
   -ms-user-select: none;
@@ -58,22 +104,55 @@ video {
   user-select: none;
 }
 
-.wrapper {
-  //display: grid;
-  //grid-auto-flow: row;
-  //gap: 0.1em;
+header,
+footer {
+  text-align: center;
 }
 
 header {
-  text-align: center;
   font-family: "Courier New";
   letter-spacing: 0.2ch;
   text-transform: uppercase;
 }
 
-.page-container {
+footer {
+  margin: 1em;
+  font-size: 0.8em;
 }
 
 .content {
   text-align: center;
+}
+
+video:focus {
+  outline: none;
+}
+
+.dot-tv {
+  font-size: 0.7em;
+  font-weight: bold;
+  letter-spacing: normal;
+  color: $colorFour;
+}
+
+.loader {
+  border: 0.5em solid #f3f3f3;
+  border-top: 0.5em solid $colorPrimary;
+  border-right: 0.5em solid $colorSecondary;
+  border-bottom: 0.5em solid $colorLinks;
+  border-left: 0.5em solid $colorFour;
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation: spin 2s linear infinite;
+  margin: 1em auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

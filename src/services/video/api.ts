@@ -1,4 +1,4 @@
-const API_ROOT = `${API_SERVER_ROOT}/video`;
+const API_ROOT = `${API_SERVER_ROOT}/public/video`;
 
 export interface VideoResponse {
   redditPostId: string;
@@ -7,7 +7,9 @@ export interface VideoResponse {
 }
 
 export async function fetchVideo(redditPostId: string): Promise<VideoResponse> {
-  const res = await fetch(`${API_ROOT}/${redditPostId}`);
+  const res = await fetch(`${API_ROOT}/${redditPostId}`, {
+    method: "GET"
+  });
 
   if (res.status !== 200) {
     let errorMessage: string;
