@@ -1,3 +1,6 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import "./layout.scss";
+
 $colorPrimary: #f2d377;
 $colorSecondary: #bf6a4b;
 $colorLinks: #f29c6b;
@@ -155,4 +158,9 @@ video:focus {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.tuckerGallery {
+  max-width: 40%;
+  margin: 0 auto;
 }
