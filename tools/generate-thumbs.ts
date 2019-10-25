@@ -10,10 +10,7 @@ let args = minimist(process.argv.slice(2));
 if (!args["source"])
   throw new Error("'source' parameter not provided; bailing");
 
-if (!args["dest"]) throw new Error("'dest' parameter not provided; bailing");
-
 const srcDir = resolve(args["source"]);
-const destDir = resolve(args["dest"]);
 
 let files = fs.readdirSync(srcDir);
 
@@ -22,7 +19,7 @@ console.log(`generating thumbnails for ${files.length} files in '${srcDir}'`);
 files.forEach(async file => {
   let filePath = resolve(join(srcDir, file));
   let fileName = basename(filePath);
-  let outputPath = resolve(join(destDir, fileName));
+  let outputPath = resolve(join(srcDir, `thumb.${fileName}`));
 
   if (lstatSync(filePath).isDirectory()) return;
 

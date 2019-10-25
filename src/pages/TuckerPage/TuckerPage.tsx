@@ -17,10 +17,9 @@ class TuckerPage extends React.Component {
           favorite thing to do is to suck on my toy ducks. I have a few ducks:
           medium ducks, small ducks, huge ducks, tiny ducks, yellow ducks, green
           ducks, purple ducks, orange ducks, slightly more yellow
-          ducks...basically every kind of duck. And a few more.
+          ducks...basically every kind of duck. And a few more. Here's a few
+          pictures of me.
         </p>
-
-        <p>Here's a few pictures of me.</p>
 
         <TuckerGallery />
       </PageContainer>

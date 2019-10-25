@@ -2,7 +2,6 @@ import * as React from "react";
 import { setTitle } from "../../services/title/hooks";
 import { useRedditVideo } from "../../services/video/hooks";
 import Loading from "../Loading";
-import VideoDetails from "./components/VideoDetails";
 import VideoPlayer from "./components/VideoPlayer";
 import VideoTitle from "./components/VideoTitle";
 
