@@ -8,7 +8,9 @@
     "dev": "npm run start",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "npm run clean && webpack && echo tuckbot.tv > ./dist/CNAME",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "generate-thumbs": "ts-node-dev --cls tools/generate-thumbs.ts",
+    "remove-exif": "ts-node-dev --cls tools/remove-exif.ts"
   },
   "repository": {
     "type": "git",
@@ -25,12 +27,15 @@
     "dotenv-webpack": "^1.7.0",
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
+    "react-image-gallery": "^0.9.1",
     "react-router-dom": "^5.1.1",
     "rimraf": "^3.0.0"
   },
   "devDependencies": {
+    "@types/image-thumbnail": "^1.0.0",
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
+    "@types/react-image-gallery": "^0.8.4",
     "@types/react-router-dom": "^5.1.0",
     "cross-env": "^6.0.0",
     "css-loader": "^3.2.0",
@@ -38,10 +43,15 @@
     "file-loader": "^4.2.0",
     "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
+    "image-thumbnail": "^1.0.4",
+    "minimist": "^1.2.0",
+    "piexifjs": "^1.0.6",
     "sass": "^1.22.12",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "ts-loader": "^6.2.0",
+    "ts-node": "^8.4.1",
+    "ts-node-dev": "^1.0.0-pre.43",
     "typescript": "^3.6.3",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
