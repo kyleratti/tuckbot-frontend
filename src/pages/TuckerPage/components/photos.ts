@@ -7,23 +7,19 @@ interface PhotoType {
 export const photos = [
   {
     original: require("@/img/tuck-bowtie.jpg"),
-    thumbnail: require("@/img/thumb.tuck-bowtie.jpg"),
-    description: "Handsome in a bowtie"
+    thumbnail: require("@/img/thumb.tuck-bowtie.jpg")
   },
   {
     original: require("@/img/tuck-couch.jpg"),
-    thumbnail: require("@/img/thumb.tuck-couch.jpg"),
-    description: "Enjoying the most relaxing couch position ever"
+    thumbnail: require("@/img/thumb.tuck-couch.jpg")
   },
   {
     original: require("@/img/tuck-cozy.jpg"),
-    thumbnail: require("@/img/thumb.tuck-cozy.jpg"),
-    description: "Snug as a duck with his Tuck"
+    thumbnail: require("@/img/thumb.tuck-cozy.jpg")
   },
   {
     original: require("@/img/tuck-deck.jpg"),
-    thumbnail: require("@/img/thumb.tuck-deck.jpg"),
-    description: '"He\'s a silent guardian. A watchful protector."'
+    thumbnail: require("@/img/thumb.tuck-deck.jpg")
   },
   {
     original: require("@/img/tuck-ducksuck.jpg"),
@@ -35,13 +31,11 @@ export const photos = [
   },
   {
     original: require("@/img/tuck-fiata.jpg"),
-    thumbnail: require("@/img/thumb.tuck-fiata.jpg"),
-    description: "The only co-pilot I ever want"
+    thumbnail: require("@/img/thumb.tuck-fiata.jpg")
   },
   {
     original: require("@/img/tuck-lazy.jpg"),
-    thumbnail: require("@/img/thumb.tuck-lazy.jpg"),
-    description: "Why shouldn't you lie down mid-walk and refuse to get up?"
+    thumbnail: require("@/img/thumb.tuck-lazy.jpg")
   },
   {
     original: require("@/img/tuck-noselick.jpg"),
@@ -53,8 +47,7 @@ export const photos = [
   },
   {
     original: require("@/img/tuck-stump.jpg"),
-    thumbnail: require("@/img/thumb.tuck-stump.jpg"),
-    description: "Little old man boy"
+    thumbnail: require("@/img/thumb.tuck-stump.jpg")
   },
   {
     original: require("@/img/tuck-yawn.jpg"),
