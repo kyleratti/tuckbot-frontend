@@ -1,15 +1,9 @@
 @import "~react-image-gallery/styles/scss/image-gallery.scss";
-@import "./layout.scss";
+@import "./variables";
+@import "./layout";
+@import "./gallery.scss";
 
-$colorPrimary: #f2d377;
-$colorSecondary: #bf6a4b;
-$colorLinks: #f29c6b;
-$colorFour: #b13323;
-$colorBackground: #1a3140;
-
-$sourceAlpha: 0.85;
-
-html {
+h tml {
   height: 100%;
 }
 
@@ -93,7 +87,7 @@ video {
 }
 
 #main {
-  display: flex;
+  //display: flex;
   align-items: center;
   justify-content: center;
 }

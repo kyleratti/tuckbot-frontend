@@ -13,12 +13,11 @@ class TuckerPage extends React.Component {
         <h1>Hi there, I'm Tucker!</h1>
 
         <p>
-          Hi! I'm Tucker. Thanks for the pets! I am {TUCKER_AGE} years old. My
-          favorite thing to do is to suck on my toy ducks. I have a few ducks:
-          medium ducks, small ducks, huge ducks, tiny ducks, yellow ducks, green
-          ducks, purple ducks, orange ducks, slightly more yellow
-          ducks...basically every kind of duck. And a few more. Here's a few
-          pictures of me.
+          Thanks for the pets! I am {TUCKER_AGE} years old. My favorite thing to
+          do is to suck on my toy ducks. I have a few ducks: medium ducks, small
+          ducks, huge ducks, tiny ducks, yellow ducks, green ducks, purple
+          ducks, orange ducks, slightly more yellow ducks...basically every kind
+          of duck. And a few more. Here's a few pictures of me.
         </p>
 
         <TuckerGallery />
