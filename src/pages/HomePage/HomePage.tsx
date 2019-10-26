@@ -1,6 +1,5 @@
 import * as React from "react";
 import PageContainer from "../../components/PageContainer";
-import RandomVideoLink from "../../components/Links/RandomVideoLink";
 
 const HomePage: React.FC = () => (
   <PageContainer>
