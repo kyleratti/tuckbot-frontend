@@ -3,3 +3,10 @@
 .image-gallery-thumbnail.active {
   border-color: $colorFour;
 }
+
+.image-gallery-fullscreen-button:hover::before,
+.image-gallery-play-button:hover::before,
+.image-gallery-left-nav:hover::before,
+.image-gallery-right-nav:hover::before {
+  color: $colorSecondary;
+}
