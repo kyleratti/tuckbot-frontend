@@ -158,3 +158,16 @@ video:focus {
   max-width: 40%;
   margin: 0 auto;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+dt {
+  font-weight: bold;
+
+  dt,
+  h2 small {
+    white-space: nowrap;
+  }
+}
