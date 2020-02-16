@@ -18,21 +18,7 @@ const WatchVideoPage: React.FunctionComponent<Props & RouteComponentProps> = ({
   }
 }) => (
   <PageContainer>
-    <React.Fragment>
-      <VideoDisplay redditPostId={redditPostId} />
-    </React.Fragment>
+    <VideoDisplay redditPostId={redditPostId} />
   </PageContainer>
-  // <AbstractGameObject gameObjectId={Number(redditPostId)}>
-  //   {({ redditPostId }) => (
-  //     <React.Fragment>
-  //       <RedirectIfNoSave />
-
-  //       {redditPostId === "Minion" && (
-  //         <DuplicantEditor gameObjectId={Number(redditPostId)} />
-  //       )}
-  //       {redditPostId !== "Minion" && <DuplicantNotFound />}
-  //     </React.Fragment>
-  //   )}
-  // </AbstractGameObject>
 );
 export default WatchVideoPage;
