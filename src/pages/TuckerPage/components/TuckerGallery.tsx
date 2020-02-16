@@ -1,10 +1,8 @@
-import * as React from "react";
+import React from "react";
 import ImageGallery from "react-image-gallery";
 import { photos } from "./photos";
 
 const TuckerGallery: React.FunctionComponent = () => (
-  // @ts-ignore
-  // This fixes a typings error with most of these attributes as the typings file is outdated
   <ImageGallery
     items={photos}
     thumbnailPosition="top"
@@ -15,6 +13,8 @@ const TuckerGallery: React.FunctionComponent = () => (
     autoPlay={true}
     startIndex={4}
     slideInterval={1000 * 5}
+    // @ts-ignore
+    // This fixes a typings error with most of these attributes as the typings file is outdated
     additionalClass="tuckerGallery"
   />
 );
