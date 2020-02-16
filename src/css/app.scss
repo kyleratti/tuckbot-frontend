@@ -3,10 +3,6 @@
 @import "./layout";
 @import "./gallery.scss";
 
-h tml {
-  height: 100%;
-}
-
 body {
   height: 100%;
   margin: 0;
@@ -14,7 +10,7 @@ body {
   background-attachment: fixed;
   background: $colorBackground;
 
-  font-family: "Arial", Arial, Helvetica, sans-serif;
+  font-family: "Times New Roman", Times, serif;
   color: $colorPrimary;
   place-items: center;
 }
@@ -24,17 +20,9 @@ h2 small {
   font-weight: normal;
 }
 
-h2 small a {
-  color: rgba($colorFour, $sourceAlpha);
-}
-
-h2 small a:hover {
-  color: rgba($colorSecondary, $sourceAlpha);
-}
-
 a,
 a:visited {
-  color: rgba($colorLinks, 0.8);
+  color: $colorLinks;
   font-weight: bold;
   text-decoration: none;
 }
@@ -42,7 +30,7 @@ a:visited {
 a:hover {
   color: $colorSecondary;
   text-align: center;
-  text-shadow: 0 0 100px red;
+  text-decoration: underline;
 }
 
 .videoTitle h2 {
@@ -82,7 +70,7 @@ video {
   min-height: 150px;
   max-width: 85%;
   max-height: 70vh;
-  background-color: rgb(10.2%, 19.2%, 35%);
+  background-color: $colorBackground;
   object-fit: contain;
 }
 
@@ -107,7 +95,6 @@ footer {
 }
 
 header {
-  font-family: "Courier New";
   letter-spacing: 0.2ch;
   text-transform: uppercase;
 }
@@ -129,7 +116,7 @@ video:focus {
   font-size: 0.7em;
   font-weight: bold;
   letter-spacing: normal;
-  color: $colorFour;
+  color: rgba($colorPrimary, 0.6);
 }
 
 .loader {
