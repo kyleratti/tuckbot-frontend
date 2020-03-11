@@ -10,7 +10,7 @@ body {
   background-attachment: fixed;
   background: $colorBackground;
 
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Courier New", Courier, monospace;
   color: $colorPrimary;
   place-items: center;
 }
@@ -25,6 +25,8 @@ a:visited {
   color: $colorLinks;
   font-weight: bold;
   text-decoration: none;
+
+  text-transform: uppercase;
 }
 
 a:hover {
