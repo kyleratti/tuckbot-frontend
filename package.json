@@ -7,10 +7,21 @@
     "clean": "rimraf dist",
     "dev": "npm run start",
     "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "npm run clean && webpack && echo tuckbot.tv > ./dist/CNAME",
-    "deploy": "npm run build && gh-pages -d dist",
+    "prebuild": "npm run clean",
+    "build": "webpack && echo tuckbot.tv > ./dist/CNAME",
+    "deploy": "npm run build",
+    "prepublish": "npm run build && npx react-snap",
+    "publish": "gh-pages -d dist",
     "generate-thumbs": "ts-node-dev --cls tools/generate-thumbs.ts",
-    "remove-exif": "ts-node-dev --cls tools/remove-exif.ts"
+    "remove-exif": "ts-node-dev --cls tools/remove-exif.ts",
+    "serve": "npx http-server ./dist"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "include": [
+      "/index.html"
+    ],
+    "crawl": false
   },
   "repository": {
     "type": "git",
@@ -22,7 +33,6 @@
   "bugs": {
     "url": "https://github.com/kyleratti/tuckbot-frontend/issues"
   },
-  "homepage": "https://github.com/kyleratti/tuckbot-frontend#readme",
   "dependencies": {
     "dotenv-webpack": "^1.7.0",
     "react": "^16.13.1",
@@ -37,15 +47,19 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-image-gallery": "^0.8.4",
     "@types/react-router-dom": "^5.1.4",
+    "@webpack-cli/serve": "^0.2.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.5.2",
     "dotenv": "^8.2.0",
     "file-loader": "^4.3.0",
     "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "http-server": "^0.12.1",
     "image-thumbnail": "^1.0.8",
     "minimist": "^1.2.5",
     "piexifjs": "^1.0.6",
+    "prerender-loader": "^1.3.0",
+    "react-snap": "^1.23.0",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "source-map-loader": "^0.2.4",
