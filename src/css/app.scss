@@ -72,7 +72,7 @@ video {
   min-height: 150px;
   max-width: 85%;
   max-height: 70vh;
-  background-color: $colorBackground;
+  background-color: lighten($colorBackground, 10%);
   object-fit: contain;
 }
 
