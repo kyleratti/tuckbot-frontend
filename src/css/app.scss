@@ -75,6 +75,9 @@ video {
   max-height: 70vh;
   background-color: lighten($colorBackground, 10%);
   object-fit: contain;
+}
+
+video:not(:fullscreen) {
   border: 1px solid rgba($colorSecondary, 0.5);
 }
 
