@@ -176,3 +176,17 @@ dt {
     white-space: nowrap;
   }
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.2em;
+  }
+
+  .videoTitle h2 {
+    font-size: 1em;
+  }
+
+  .videoTitle {
+    margin-bottom: 1em;
+  }
+}
