@@ -1,5 +1,5 @@
 import * as React from "react";
-const poster = require("@/img/poster.png");
+const poster = require("@/img/poster.png").default;
 
 export interface VideoPlayerProps {
   mirrorUrl: string;
