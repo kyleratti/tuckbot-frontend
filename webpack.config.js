@@ -27,25 +27,25 @@ module.exports = {
   devServer: {
     contentBase: DIST,
     hot: isDev,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
 
   entry: {
-    client: [join(SRC, "./App.tsx")]
+    client: [join(SRC, "./App.tsx")],
   },
 
   output: {
     filename: "[name]_[hash].bundle.js",
     path: DIST,
-    publicPath: isDev ? "/" : PUBLIC_PATH
+    publicPath: isDev ? "/" : PUBLIC_PATH,
   },
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".ts", ".tsx", ".js", ".json"],
     alias: {
-      "@": SRC
-    }
+      "@": SRC,
+    },
   },
 
   module: {
@@ -56,7 +56,7 @@ module.exports = {
         enforce: "pre",
         test: /\.(jsx?|tsx?)$/,
         loader: "source-map-loader",
-        include: [/src\/.+\.tsx?/]
+        include: [/src\/.+\.tsx?/],
       },
 
       //  Run typescript through react-hot-loader to rewrite react components for hot loading.
@@ -64,29 +64,29 @@ module.exports = {
         test: /\.tsx?$/,
         use: [
           {
-            loader: "ts-loader"
-          }
-        ]
+            loader: "ts-loader",
+          },
+        ],
       },
 
       {
         test: /\.css$/,
-        loader: ["style-loader", "css-loader"]
+        loader: ["style-loader", "css-loader"],
       },
 
       {
         test: /\.s[ac]ss$/,
-        loader: ["style-loader", "css-loader", "sass-loader"]
+        loader: ["style-loader", "css-loader", "sass-loader"],
       },
 
       {
         test: /\.(png|svg|jpg|gif)$/,
         loader: "file-loader",
         options: {
-          name: "assets/img/[name]_[hash].[ext]"
-        }
-      }
-    ]
+          name: "assets/img/[name]_[hash].[ext]",
+        },
+      },
+    ],
   },
 
   plugins: [
@@ -94,27 +94,27 @@ module.exports = {
     isDev && new webpack.HotModuleReplacementPlugin(),
 
     new DotenvWebpack({
-      silent: false
+      silent: false,
     }),
 
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify(isDev ? "development" : "production")
+        NODE_ENV: JSON.stringify(isDev ? "development" : "production"),
       },
-      API_SERVER_ROOT: JSON.stringify(API_SERVER_ROOT)
+      API_SERVER_ROOT: JSON.stringify(API_SERVER_ROOT),
     }),
 
     new HtmlWebpackPlugin({
       inject: true,
-      template: resolve(SRC, "index.ejs")
-    })
-  ].filter(x => x != false),
+      template: resolve(SRC, "index.ejs"),
+    }),
+  ].filter((x) => x != false),
 
   optimization: {
     splitChunks: {
-      chunks: "all"
+      chunks: "all",
     },
     runtimeChunk: true,
-    minimize: !isDev
-  }
+    minimize: !isDev,
+  },
 };
