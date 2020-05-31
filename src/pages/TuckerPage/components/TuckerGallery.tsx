@@ -13,8 +13,6 @@ const TuckerGallery: React.FunctionComponent = () => (
     autoPlay={true}
     startIndex={4}
     slideInterval={1000 * 5}
-    // @ts-ignore
-    // This fixes a typings error with most of these attributes as the typings file is outdated
     additionalClass="tuckerGallery"
   />
 );
