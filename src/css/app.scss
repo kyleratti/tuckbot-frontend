@@ -15,6 +15,12 @@ body {
   place-items: center;
 }
 
+h1 small {
+  font-size: 0.9em;
+  padding: 0.15em;
+  color: $colorSecondary;
+}
+
 h2 small {
   font-size: 0.7em;
   font-weight: normal;
@@ -66,6 +72,11 @@ a:hover {
 
 .inline-list dd {
   margin-left: 0.75em;
+}
+
+.label {
+  background-color: lighten($colorBackground, 20);
+  border: 0.05em solid rgba($colorSecondary, 0.6);
 }
 
 video {

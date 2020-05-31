@@ -5,7 +5,7 @@ const TUCKER_PETS = 3;
 
 class Heading extends React.Component {
   state = {
-    numClicks: 0
+    numClicks: 0,
   };
 
   constructor(props: any) {
@@ -18,7 +18,7 @@ class Heading extends React.Component {
 
   handleClick() {
     this.setState({
-      numClicks: this.state.numClicks + 1
+      numClicks: this.state.numClicks + 1,
     });
   }
 
@@ -35,7 +35,10 @@ class Heading extends React.Component {
           <span id="tuckie-boy" onClick={this.handleClick}>
             🐶
           </span>
-          Tuckbot<span className="dot-tv">.tv</span>
+          Tuckbot<span className="dot-tv">.tv</span>{" "}
+          <span className="label">
+            <small>#BlackLivesMatter</small>
+          </span>
         </h1>
       </header>
     );
