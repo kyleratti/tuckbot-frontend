@@ -187,6 +187,12 @@ dt {
   }
 }
 
+.contactPage {
+  p {
+    text-align: justify;
+  }
+}
+
 @media (max-width: 1024px) {
   header {
     .siteComment {
@@ -204,5 +210,9 @@ dt {
 
   .videoTitle {
     margin-bottom: 1em;
+  }
+
+  .inline-list {
+    font-size: 0.95em;
   }
 }
