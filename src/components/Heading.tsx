@@ -31,15 +31,17 @@ class Heading extends React.Component {
     return (
       <header>
         {redirect}
-        <h1>
-          <span id="tuckie-boy" onClick={this.handleClick}>
-            🐶
-          </span>
-          Tuckbot<span className="dot-tv">.tv</span>{" "}
-          <span className="label">
-            <small>#BlackLivesMatter</small>
-          </span>
-        </h1>
+        <div className="siteTitle">
+          <h1>
+            <span id="tuckie-boy" onClick={this.handleClick}>
+              🐶
+            </span>
+            Tuckbot<span className="dot-tv">.tv</span>
+          </h1>
+        </div>
+        <div className="siteComment">
+          <span className="label">#BlackLivesMatter</span>
+        </div>
       </header>
     );
   }

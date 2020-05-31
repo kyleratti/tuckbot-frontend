@@ -15,12 +15,6 @@ body {
   place-items: center;
 }
 
-h1 small {
-  font-size: 0.9em;
-  padding: 0.15em;
-  color: $colorSecondary;
-}
-
 h2 small {
   font-size: 0.7em;
   font-weight: normal;
@@ -77,6 +71,8 @@ a:hover {
 .label {
   background-color: lighten($colorBackground, 20);
   border: 0.05em solid rgba($colorSecondary, 0.6);
+  padding: 0.1em;
+  font-weight: bold;
 }
 
 video {
@@ -113,8 +109,22 @@ footer {
 }
 
 header {
+  width: 100%;
   letter-spacing: 0.2ch;
   text-transform: uppercase;
+
+  div {
+    display: inline-block;
+  }
+
+  .siteTitle {
+    margin-right: 0.5em;
+  }
+
+  .siteComment {
+    font-size: 1.7em;
+    color: $colorSecondary;
+  }
 }
 
 footer {
@@ -177,7 +187,13 @@ dt {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  header {
+    .siteComment {
+      font-size: 1.05em;
+    }
+  }
+
   h1 {
     font-size: 1.2em;
   }
