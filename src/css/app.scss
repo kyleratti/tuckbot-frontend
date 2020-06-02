@@ -69,10 +69,19 @@ a:hover {
 }
 
 .label {
-  background-color: lighten($colorBackground, 20);
-  border: 0.05em solid rgba($colorSecondary, 0.6);
+  background-color: lighten($colorBackground, 15);
+  border: 0.05em solid rgba(white, 1);
+  color: white;
   padding: 0.1em;
-  font-weight: bold;
+  font-weight: normal;
+}
+
+.label {
+  .alt {
+    color: $colorBackground;
+    -webkit-text-stroke: 1px white;
+    font-weight: bold;
+  }
 }
 
 video {

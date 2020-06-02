@@ -40,7 +40,9 @@ class Heading extends React.Component {
           </h1>
         </div>
         <div className="siteComment">
-          <span className="label">#BlackLivesMatter</span>
+          <span className="label">
+            #Black<span className="alt">Lives</span>Matter
+          </span>
         </div>
       </header>
     );
