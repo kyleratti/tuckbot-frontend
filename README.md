@@ -6,6 +6,12 @@ The web-based frontend for Tuckbot that serves video content to visitors. It is 
 
 When loading a video, the application will make an API call to [tuckbot-api](https://github.com/kyleratti/tuckbot-api) in order to retrieve the title and URL of the video you're attempting to watch.
 
+## URL Scheme
+
+To keep things simple, this application follows a very simple URL scheme for the content it hosts: `https://tuckbot.tv/#/watch/redditPostId`
+
+At this time I do not intend to provide any sort of meaningful home page or listing of live videos as I'd rather keep the sharing and discussion central to Reddit.
+
 ## Installation
 
 This project is set up to accomodate local development and intends to be built and deployed to a web server for production. It was designed for deployment to GitHub Pages, so while a web server is built in, it's only for development purposes and not suitable for production use.
