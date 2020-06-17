@@ -5,8 +5,9 @@ const ContactPage: React.FunctionComponent = () => (
   <PageContainer>
     <div className="contactPage">
       <p>
-        <b>Please note:</b> None of the content on this page is owned by the
-        operators of this website.
+        <b>Please note:</b> None of the content on any pages of this site is
+        owned by the operators of this website. All content is provided as an
+        alternative courtesy service to submissions on Reddit.
       </p>
 
       <p>
