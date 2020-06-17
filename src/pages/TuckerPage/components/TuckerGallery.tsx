@@ -2,7 +2,7 @@ import React from "react";
 import ImageGallery from "react-image-gallery";
 import { photos } from "./photos";
 
-const TuckerGallery: React.FunctionComponent = () => (
+const TuckerGallery: React.FC = () => (
   <ImageGallery
     items={photos}
     thumbnailPosition="top"

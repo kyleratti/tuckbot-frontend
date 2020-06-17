@@ -1,4 +1,4 @@
-const photo = (str: string) => ({
+const makePhotoObject = (str: string) => ({
   original: require(`@/img/${str}`).default,
   thumbnail: require(`@/img/thumb.${str}`).default,
 });
@@ -17,4 +17,4 @@ export const photos = [
   "tuck-stump.jpg",
   "tuck-yawn.jpg",
   "tuck-yawn2.jpg",
-].map((str) => photo(str));
+].map((str) => makePhotoObject(str));
