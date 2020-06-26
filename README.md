@@ -28,6 +28,7 @@ This project is set up to accomodate local development and intends to be built a
 4. Build with `npm run build`
 5. Start `webpack-dev-server` with `npm run dev`
 6. Open http://127.0.0.1:8080/ in your browser
+7. Browse to a page in the database (e.g. https://tuckbot.tv/#/watch/h7owpz)
 
 Note that the application won't do much unless [tuckbot-api](https://github.com/kyleratti/tuckbot-api) is up and running.
 
