@@ -12,9 +12,10 @@ jobs:
           persist-credentials: false
 
       - name: Install and Build
-        env: NODE_ENV=PRODUCTION
-          API_SERVER_ROOT=${{ secrets.API_SERVER_ROOT }}
-          GOOGLE_ANALYTICS_TRACKING_ID=${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
+        env:
+          NODE_ENV: PRODUCTION
+          API_SERVER_ROOT: ${{ secrets.API_SERVER_ROOT }}
+          GOOGLE_ANALYTICS_TRACKING_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
         run: |
           npm install
           npm run predeploy
