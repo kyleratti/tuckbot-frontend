@@ -13,11 +13,13 @@ dotenv.config();
 
 const PUBLIC_PATH = "/";
 const API_SERVER_ROOT = process.env.API_SERVER_ROOT;
+const GOOGLE_ANALYTICS_TRACKING_ID = process.env.GOOGLE_ANALYTICS_TRACKING_ID;
 const SRC = resolve("src");
 const DIST = resolve("dist");
 
 console.log("Webpack build", isDev ? "[development]" : "[production]");
 console.log("Targeting API server at", API_SERVER_ROOT);
+console.log("Google Analytics Tracking ID is ", GOOGLE_ANALYTICS_TRACKING_ID);
 
 module.exports = {
   mode: isDev ? "development" : "production",
