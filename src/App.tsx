@@ -4,7 +4,7 @@ import ReactGA from "react-ga";
 import "./css/app.scss";
 import Main from "./Main";
 
-const googleAnalyticsId = process.env.GOOGLE_ANALYTICS_TRACKING_ID;
+const googleAnalyticsId = GOOGLE_ANALYTICS_TRACKING_ID;
 
 if (googleAnalyticsId) {
   console.log(googleAnalyticsId);
