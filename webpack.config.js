@@ -21,6 +21,10 @@ console.log("Webpack build", isDev ? "[development]" : "[production]");
 console.log("Targeting API server at", API_SERVER_ROOT);
 console.log("Google Analytics Tracking ID is ", GOOGLE_ANALYTICS_TRACKING_ID);
 
+if (!API_SERVER_ROOT) console.warn("API_SERVER_ROOT not defined");
+if (!GOOGLE_ANALYTICS_TRACKING_ID)
+  console.warn("GOOGLE_ANALYTICS_TRACKING_ID not defined");
+
 module.exports = {
   mode: isDev ? "development" : "production",
 
