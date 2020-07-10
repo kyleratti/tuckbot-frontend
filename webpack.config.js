@@ -108,6 +108,9 @@ module.exports = {
         NODE_ENV: JSON.stringify(isDev ? "development" : "production"),
       },
       API_SERVER_ROOT: JSON.stringify(API_SERVER_ROOT),
+      GOOGLE_ANALYTICS_TRACKING_ID: JSON.stringify(
+        GOOGLE_ANALYTICS_TRACKING_ID
+      ),
     }),
 
     new HtmlWebpackPlugin({
