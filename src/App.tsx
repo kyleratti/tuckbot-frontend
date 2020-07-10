@@ -7,7 +7,6 @@ import Main from "./Main";
 const googleAnalyticsId = GOOGLE_ANALYTICS_TRACKING_ID;
 
 if (googleAnalyticsId) {
-  console.log(googleAnalyticsId);
   ReactGA.initialize(googleAnalyticsId);
   ReactGA.pageview(window.location.pathname + window.location.hash);
 }
