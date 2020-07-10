@@ -11,7 +11,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install and Build
+      - name: Install and Build 🔨
         env:
           NODE_ENV: PRODUCTION
           API_SERVER_ROOT: ${{ secrets.API_SERVER_ROOT }}
