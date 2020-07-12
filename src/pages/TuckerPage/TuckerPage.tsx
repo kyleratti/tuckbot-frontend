@@ -53,31 +53,28 @@ const photos = {
   yawn: makePhotoObject({ img: "tuck-yawn2.jpg", alt: "Tucker yawning" }),
 };
 
-class TuckerPage extends React.Component {
-  render() {
-    return (
-      <PageContainer>
-        <h1>Hi there, I'm Tucker!</h1>
+const TuckerPage: React.FC = () => (
+  <PageContainer>
+    <h1>Hi there, I'm Tucker!</h1>
 
-        <p>
-          Thanks for the pets! I am {TUCKER_AGE} years old. My favorite thing to
-          do is to suck on my toy ducks. I have a few ducks: medium ducks, small
-          ducks, huge ducks, tiny ducks, yellow ducks, green ducks, purple
-          ducks, orange ducks, slightly more yellow ducks...basically every kind
-          of duck. And a few more. Here's a few pictures of me.
-        </p>
+    <p>
+      Thanks for the pets! I am {TUCKER_AGE} years old. My favorite thing to do
+      is to suck on my toy ducks. I have a few ducks: medium ducks, small ducks,
+      huge ducks, tiny ducks, yellow ducks, green ducks, purple ducks, orange
+      ducks, slightly more yellow ducks...basically every kind of duck. And a
+      few more. Here's a few pictures of me.
+    </p>
 
-        <div className="imageGrid">
-          <TuckImage photo={photos.polaroid} />
-          <TuckImage photo={photos.duckSuck} />
-          <TuckImage photo={photos.hammock} />
-          <TuckImage photo={photos.duckPillow} />
-          <TuckImage photo={photos.fiataWind} />
-          <TuckImage photo={photos.duckSuck2} />
-          <TuckImage photo={photos.yawn} />
-        </div>
-      </PageContainer>
-    );
-  }
-}
+    <div className="imageGrid">
+      <TuckImage photo={photos.polaroid} />
+      <TuckImage photo={photos.duckSuck} />
+      <TuckImage photo={photos.hammock} />
+      <TuckImage photo={photos.duckPillow} />
+      <TuckImage photo={photos.fiataWind} />
+      <TuckImage photo={photos.duckSuck2} />
+      <TuckImage photo={photos.yawn} />
+    </div>
+  </PageContainer>
+);
+
 export default TuckerPage;
