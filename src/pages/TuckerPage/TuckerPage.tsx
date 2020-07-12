@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import PageContainer from "../../components/PageContainer";
 import TuckImage from "./components/TuckImage";
 import { Photo } from "./photo";
@@ -37,10 +37,6 @@ const photos = {
     alt: "Tucker sucking on a yellow toy duck",
     caption: "I love my yellow duck the most",
   }),
-  fiataHi: makePhotoObject({
-    img: "tuck-fiata-hi.jpg",
-    alt: "Tucker popping his head over the door of the car",
-  }),
   fiataWind: makePhotoObject({
     img: "tuck-fiata-wind.jpg",
     alt: "Tucker sticking his head out the window of the car",
@@ -77,7 +73,6 @@ class TuckerPage extends React.Component {
           <TuckImage photo={photos.hammock} />
           <TuckImage photo={photos.duckPillow} />
           <TuckImage photo={photos.fiataWind} />
-          <TuckImage photo={photos.fiataHi} />
           <TuckImage photo={photos.duckSuck2} />
           <TuckImage photo={photos.yawn} />
         </div>
