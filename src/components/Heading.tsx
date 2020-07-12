@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
 
-const TUCKER_PETS = 3;
+const TUCKER_PETS = 2;
 
 const Heading: React.FC = () => {
   const [pets, setPets] = useState(0);
