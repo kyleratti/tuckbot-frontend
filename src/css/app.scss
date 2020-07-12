@@ -69,7 +69,7 @@ a:hover {
 }
 
 .label {
-  background-color: lighten($colorBackground, 15);
+  background-color: black;
   border: 0.05em solid white;
   color: white;
   padding: 0 0.1em;
@@ -78,7 +78,7 @@ a:hover {
 
 .label {
   .alt {
-    color: $colorBackground;
+    color: black;
     padding-left: 2px;
     padding-right: 2px;
     font-weight: bold;
@@ -134,7 +134,7 @@ header {
   }
 
   .siteTitle h1 {
-    background: linear-gradient(to right, rgb(45, 226, 230), rgb(84, 13, 110));
+    background: linear-gradient(to right, rgb(45, 226, 230), rgb(255, 56, 100));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -150,6 +150,16 @@ header {
   .siteComment {
     font-size: 1.7em;
     color: $colorSecondary;
+  }
+
+  nav {
+    font-size: 0.85em;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 }
 
