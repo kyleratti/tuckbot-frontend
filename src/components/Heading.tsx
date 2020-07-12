@@ -1,52 +1,34 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router";
 
 const TUCKER_PETS = 3;
 
-class Heading extends React.Component {
-  state = {
-    numClicks: 0,
+const Heading: React.FC = () => {
+  const [pets, setPets] = useState(0);
+
+  const onPet = () => {
+    setPets(pets + 1);
   };
 
-  constructor(props: any) {
-    super(props);
+  if (pets >= TUCKER_PETS) return <Redirect push to="/tucker" />;
 
-    this.state = { numClicks: 0 };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState({
-      numClicks: this.state.numClicks + 1,
-    });
-  }
-
-  render() {
-    let redirect: React.ReactNode = null;
-    if (this.state.numClicks > TUCKER_PETS) {
-      redirect = <Redirect push to="/tucker" />;
-    }
-
-    return (
-      <header>
-        {redirect}
-        <div className="siteTitle">
-          <h1>
-            <span id="tuckie-boy" onClick={this.handleClick}>
-              🐶
-            </span>
-            Tuckbot<span className="dot-tv">.tv</span>
-          </h1>
-        </div>
-        <div className="siteComment">
-          <span className="label">
-            #Black<span className="alt">Lives</span>Matter
+  return (
+    <header>
+      <div className="siteTitle">
+        <h1>
+          <span id="tuckie-boy" onClick={onPet}>
+            🐶
           </span>
-        </div>
-      </header>
-    );
-  }
-}
+          Tuckbot<span className="dot-tv">.tv</span>
+        </h1>
+      </div>
+      <div className="siteComment">
+        <span className="label">
+          #Black<span className="alt">Lives</span>Matter
+        </span>
+      </div>
+    </header>
+  );
+};
 
 export default Heading;
