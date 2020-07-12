@@ -5,29 +5,37 @@ import * as minimist from "minimist";
 import { basename, join, resolve } from "path";
 import removeExif from "./remove-exif";
 
-let args = minimist(process.argv.slice(2));
+const args = minimist(process.argv.slice(2));
 
 if (!args["source"])
   throw new Error("'source' parameter not provided; bailing");
 
 const srcDir = resolve(args["source"]);
 
-let files = fs.readdirSync(srcDir);
+const files = fs
+  .readdirSync(srcDir)
+  .filter((file) => file.substr(0, 6) !== "thumb.");
 
 console.log(`generating thumbnails for ${files.length} files in '${srcDir}'`);
 
-files.forEach(async file => {
-  let filePath = resolve(join(srcDir, file));
-  let fileName = basename(filePath);
-  let outputPath = resolve(join(srcDir, `thumb.${fileName}`));
+files.forEach(async (file) => {
+  const filePath = resolve(join(srcDir, file));
+  const fileName = basename(filePath);
+  const fileNameSplit = fileName.split(".");
+  const fileExt = fileNameSplit[fileNameSplit.length - 1];
+  const outputPath = resolve(join(srcDir, `thumb.${fileName}`));
 
   if (lstatSync(filePath).isDirectory()) return;
 
-  removeExif(filePath, true);
+  if (["jpg", "jpeg"].includes(fileExt)) removeExif(filePath, true);
+  else
+    console.warn(
+      `Unable to remove exif data from ${filePath}; ensure this is intentional`
+    );
 
-  let thumb = await imageThumbnail(filePath, {
+  const thumb = await imageThumbnail(filePath, {
     percentage: 15,
-    responseType: "buffer"
+    responseType: "buffer",
   });
 
   fs.writeFileSync(outputPath, thumb, "binary");
