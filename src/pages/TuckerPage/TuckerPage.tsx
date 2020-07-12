@@ -1,10 +1,57 @@
 import * as React from "react";
 import PageContainer from "../../components/PageContainer";
-import TuckerGallery from "./components/TuckerGallery";
+import TuckImage from "./components/TuckImage";
+import { Photo } from "./photo";
 
 const TUCKER_BIRTHDAY = 1456790400;
 const TUCKER_BIRTHDAY_DIFF = Math.floor(Date.now() / 1000) - TUCKER_BIRTHDAY;
 const TUCKER_AGE = Math.floor(TUCKER_BIRTHDAY_DIFF / (60 * 60 * 24 * 365));
+
+type PhotoObject = {
+  img: string;
+  alt: string;
+  caption?: string;
+};
+
+const makePhotoObject = (opts: PhotoObject) =>
+  ({
+    original: require(`@/img/${opts.img}`).default,
+    thumbnail: require(`@/img/thumb.${opts.img}`).default,
+    alt: opts.alt,
+    caption: opts.caption,
+  } as Photo);
+
+const photos = {
+  duckPillow: makePhotoObject({
+    img: "tuck-duck-pillow.jpg",
+    alt: "Tucker resting his head on a pillow",
+    caption: "Never nap without your duck friend!",
+  }),
+  duckSuck: makePhotoObject({
+    img: "tuck-ducksuck.jpg",
+    alt: "Tucker sucking on a purple toy duck",
+    caption: "Enjoying a late afternoon duck suck",
+  }),
+  duckSuck2: makePhotoObject({
+    img: "tuck-ducksuck-2.jpg",
+    alt: "Tucker sucking on a yellow toy duck",
+    caption: "I love my yellow duck the most",
+  }),
+  fiataHi: makePhotoObject({
+    img: "tuck-fiata-hi.jpg",
+    alt: "Tucker popping his head over the door of the car",
+  }),
+  fiataWind: makePhotoObject({
+    img: "tuck-fiata-wind.jpg",
+    alt: "Tucker sticking his head out the window of the car",
+    caption: "I'm a big fan of rides in the Miata!",
+  }),
+  hammock: makePhotoObject({
+    img: "tuck-hammock.jpg",
+    alt: "Tucker sitting in a hammock",
+  }),
+  yawn: makePhotoObject({ img: "tuck-yawn2.jpg", alt: "Tucker yawning" }),
+};
 
 class TuckerPage extends React.Component {
   render() {
@@ -20,7 +67,15 @@ class TuckerPage extends React.Component {
           of duck. And a few more. Here's a few pictures of me.
         </p>
 
-        <TuckerGallery />
+        <div className="imageGrid">
+          <TuckImage photo={photos.duckSuck} />
+          <TuckImage photo={photos.hammock} />
+          <TuckImage photo={photos.duckPillow} />
+          <TuckImage photo={photos.fiataWind} />
+          <TuckImage photo={photos.fiataHi} />
+          <TuckImage photo={photos.duckSuck2} />
+          <TuckImage photo={photos.yawn} />
+        </div>
       </PageContainer>
     );
   }

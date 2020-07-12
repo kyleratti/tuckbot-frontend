@@ -1,7 +1,5 @@
-@import "~react-image-gallery/styles/scss/image-gallery.scss";
 @import "./variables";
 @import "./layout";
-@import "./gallery.scss";
 
 body {
   height: 100%;
@@ -213,13 +211,6 @@ video:focus {
   }
 }
 
-.tuckerGallery {
-  max-width: 40%;
-  max-height: 1200px;
-  min-height: 1200px;
-  margin: 0 auto;
-}
-
 .bold {
   font-weight: bold;
 }
@@ -237,6 +228,40 @@ dt {
   p {
     text-align: center;
   }
+}
+
+.imageGrid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.imageGrid > div {
+  margin: 1em;
+}
+
+.tuckImage {
+  position: relative;
+}
+
+.tuckImage .caption {
+  position: absolute;
+  background: rgba($colorLinks, 0.85);
+  font-size: 0.85em;
+  font-weight: bold;
+  width: 100%;
+  height: 1em;
+  padding: 0.1em;
+  bottom: 0;
+  left: 0%;
+  justify-content: center;
+}
+
+.tuckImage p {
+  display: inline;
+  margin-left: 0.5em;
+  vertical-align: top;
 }
 
 @media (max-width: 1024px) {
