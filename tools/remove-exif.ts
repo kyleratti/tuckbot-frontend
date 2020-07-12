@@ -1,6 +1,6 @@
 import * as fs from "fs";
-import * as minimist from "minimist";
-import { resolve, join } from "path";
+import minimist from "minimist";
+import { join, resolve } from "path";
 import * as piexif from "piexifjs";
 
 /**
@@ -10,8 +10,8 @@ import * as piexif from "piexifjs";
  * @returns Binary string of the data
  */
 export default function removeExif(file: string, write = true): string {
-  let imgData = fs.readFileSync(file).toString("binary");
-  let newImgData = piexif.remove(imgData);
+  const imgData = fs.readFileSync(file).toString("binary");
+  const newImgData = piexif.remove(imgData);
 
   if (write) {
     fs.writeFileSync(file, newImgData, "binary");
@@ -21,18 +21,18 @@ export default function removeExif(file: string, write = true): string {
 }
 
 if (require.main === module) {
-  let args = minimist(process.argv.slice(2));
+  const args = minimist(process.argv.slice(2));
 
   if (!args["source"])
     throw new Error("'source' parameter not provided; bailing");
 
   const srcDir = resolve(args["source"]);
-  let files = fs.readdirSync(srcDir);
+  const files = fs.readdirSync(srcDir);
 
   console.log(`removing exif data for ${files.length} files in '${srcDir}'`);
 
-  files.forEach(file => {
-    let filePath = resolve(join(srcDir, file));
+  files.forEach((file) => {
+    const filePath = resolve(join(srcDir, file));
 
     if (fs.lstatSync(filePath).isDirectory()) return;
 
