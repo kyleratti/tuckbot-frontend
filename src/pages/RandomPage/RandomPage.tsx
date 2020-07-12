@@ -4,7 +4,11 @@ import Loading from "../../components/Loading";
 import PageContainer from "../../components/PageContainer";
 import { useRedditVideo } from "../../services/video/hooks";
 
-const WatchRandomPage: React.FunctionComponent = () => {
+type RandomPageProps = {
+  embed?: boolean;
+};
+
+const RandomPage: React.FC<RandomPageProps> = ({ embed }) => {
   const { videoResponse, errorMessage } = useRedditVideo("random");
   const history = useHistory();
 
@@ -18,11 +22,13 @@ const WatchRandomPage: React.FunctionComponent = () => {
     );
   } else {
     setTimeout(() => {
-      history.replace(`/watch/${videoResponse.redditPostId}`);
+      history.replace(
+        `/${embed ? "embed" : "watch"}/${videoResponse.redditPostId}`
+      );
     }, 0);
 
     return <div>Redirecting</div>;
   }
 };
 
-export default WatchRandomPage;
+export default RandomPage;
