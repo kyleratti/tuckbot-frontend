@@ -34,7 +34,8 @@ files.forEach(async (file) => {
     );
 
   const thumb = await imageThumbnail(filePath, {
-    percentage: 15,
+    width: 350,
+    height: 250,
     responseType: "buffer",
   });
 
