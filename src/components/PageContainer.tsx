@@ -1,5 +1,4 @@
 import * as React from "react";
-import Footing from "./Footing";
 import Heading from "./Heading";
 
 const PageContainer: React.FunctionComponent = ({ children }) => (
@@ -9,8 +8,6 @@ const PageContainer: React.FunctionComponent = ({ children }) => (
     <div className="page-container">
       <div className="content">{children}</div>
     </div>
-
-    <Footing />
   </div>
 );
 

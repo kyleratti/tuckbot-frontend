@@ -161,6 +161,14 @@ header {
     padding: 0;
     margin: 0;
   }
+
+  nav ul li {
+    display: inline;
+  }
+
+  nav ul li:not(:first-child) {
+    margin-left: 1em;
+  }
 }
 
 footer {
