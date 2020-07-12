@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
 import ContactLink from "./Links/ContactLink";
+import TuckerLink from "./Links/TuckerLink";
 
 const TUCKER_PETS = 2;
 
@@ -28,6 +29,9 @@ const Heading: React.FC = () => {
           <ul>
             <li>
               <ContactLink />
+            </li>
+            <li>
+              <TuckerLink />
             </li>
           </ul>
         </nav>
