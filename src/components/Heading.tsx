@@ -6,17 +6,13 @@ const TUCKER_PETS = 2;
 const Heading: React.FC = () => {
   const [pets, setPets] = useState(0);
 
-  const onPet = () => {
-    setPets(pets + 1);
-  };
-
   if (pets >= TUCKER_PETS) return <Redirect push to="/tucker" />;
 
   return (
     <header>
       <div className="siteTitle">
         <h1>
-          <span id="tuckie-boy" onClick={onPet}>
+          <span id="tuckie-boy" onClick={() => setPets(pets + 1)}>
             🐶
           </span>
           Tuckbot<span className="dot-tv">.tv</span>
