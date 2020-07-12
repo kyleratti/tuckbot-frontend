@@ -167,6 +167,10 @@ header {
   nav ul li:not(:first-child) {
     margin-left: 1em;
   }
+
+  nav ul li::before {
+    content: "#";
+  }
 }
 
 footer {
