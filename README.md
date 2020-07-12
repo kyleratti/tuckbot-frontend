@@ -1,5 +1,7 @@
 # tuckbot-frontend
 
+![Build and Deploy](https://github.com/kyleratti/tuckbot-frontend/workflows/Build%20and%20Deploy/badge.svg)
+
 https://tuckbot.tv/
 
 The web-based frontend for Tuckbot that serves video content to visitors. It is built in React and deployed to GitHub Pages.
