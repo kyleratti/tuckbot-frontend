@@ -133,6 +133,20 @@ header {
     margin-right: 0.5em;
   }
 
+  .siteTitle h1 {
+    background: linear-gradient(to right, rgb(45, 226, 230), rgb(84, 13, 110));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #tuckie-boy {
+    background: none;
+    background-clip: unset;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: white;
+  }
+
   .siteComment {
     font-size: 1.7em;
     color: $colorSecondary;
