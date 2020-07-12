@@ -50,6 +50,10 @@ const photos = {
     img: "tuck-hammock.jpg",
     alt: "Tucker sitting in a hammock",
   }),
+  polaroid: makePhotoObject({
+    img: "tuck-polaroid.jpg",
+    alt: "Tucker sitting in his crate with his duck, smiling for hte camera",
+  }),
   yawn: makePhotoObject({ img: "tuck-yawn2.jpg", alt: "Tucker yawning" }),
 };
 
@@ -68,6 +72,7 @@ class TuckerPage extends React.Component {
         </p>
 
         <div className="imageGrid">
+          <TuckImage photo={photos.polaroid} />
           <TuckImage photo={photos.duckSuck} />
           <TuckImage photo={photos.hammock} />
           <TuckImage photo={photos.duckPillow} />
