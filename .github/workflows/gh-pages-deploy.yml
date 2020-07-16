@@ -31,7 +31,6 @@ jobs:
           name: build
           path: |
             dist/
-            src/
             package.json
             package-lock.json
             webpack.config.js
@@ -64,8 +63,6 @@ jobs:
           name: prerender
           path: |
             dist/
-            src/
-            webpack.config.js
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
