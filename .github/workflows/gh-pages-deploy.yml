@@ -79,3 +79,9 @@ jobs:
           BRANCH: gh-pages
           FOLDER: dist
           CLEAN: true
+      - name: Clean up artifacts 🧹
+          uses: gekkyeggo/delete-artifact@v1
+          with:
+            name: |
+              build
+              prerender
