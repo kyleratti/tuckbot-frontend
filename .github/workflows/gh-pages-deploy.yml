@@ -73,6 +73,10 @@ jobs:
     if: github.ref == 'refs/heads/master'
     needs: [prerender]
     steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: Retrieve dist 📨
         uses: actions/download-artifact@v2
         with:
