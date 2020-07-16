@@ -80,7 +80,7 @@ jobs:
           FOLDER: dist
           CLEAN: true
       - name: Clean up artifacts 🧹
-        uses: gekkyeggo/delete-artifact@v1
+        uses: geekyeggo/delete-artifact@v1
         with:
           name: |
             build
