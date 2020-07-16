@@ -19,11 +19,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Build 🔨
+      - name: Install 📥
         run: |
           npm install
+      - name: Build 🔨
+        run: |
           npm run build
-          ls ./
       - name: Save build 📨
         uses: actions/upload-artifact@v2
         with:
