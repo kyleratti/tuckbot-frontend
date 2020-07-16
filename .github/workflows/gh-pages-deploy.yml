@@ -55,11 +55,11 @@ jobs:
         run: |
           npm run predeploy
       - name: Save dist 📨
-      uses: actions/upload-artifact@v1
-      with:
-        name: prerender
-        path: |
-          dist/
+        uses: actions/upload-artifact@v1
+        with:
+          name: prerender
+          path: |
+            dist/
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
