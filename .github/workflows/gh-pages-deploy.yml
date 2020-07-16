@@ -81,9 +81,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: prerender
-      - name: DEBUG
-        run: |
-          ls ./
+          path: dist/
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
