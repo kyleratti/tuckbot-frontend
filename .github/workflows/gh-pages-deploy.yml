@@ -63,6 +63,11 @@ jobs:
           name: prerender
           path: |
             dist/
+      - name: Clean up build artifacts 🧹
+        uses: geekyeggo/delete-artifact@v1
+        with:
+          name: |
+            build
   deploy:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
@@ -79,9 +84,8 @@ jobs:
           BRANCH: gh-pages
           FOLDER: dist
           CLEAN: true
-      - name: Clean up artifacts 🧹
+      - name: Clean up prerender artifacts 🧹
         uses: geekyeggo/delete-artifact@v1
         with:
           name: |
-            build
             prerender
