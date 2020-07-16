@@ -1,4 +1,4 @@
-name: Build, Render, and Deploy
+name: CI/CD
 on:
   push:
     branches: [master]
