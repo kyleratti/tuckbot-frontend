@@ -9,7 +9,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "prebuild": "npm run clean",
     "build": "webpack && echo tuckbot.tv > ./dist/CNAME",
-    "predeploy": "npm run build && npx react-snap",
+    "predeploy": "npx react-snap",
     "deploy": "gh-pages -d dist",
     "generate-thumbs": "ts-node-dev --cls tools/generate-thumbs.ts",
     "remove-exif": "ts-node-dev --cls tools/remove-exif.ts",
