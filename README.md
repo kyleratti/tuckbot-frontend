@@ -1,6 +1,6 @@
 # tuckbot-frontend
 
-![Build and Deploy](https://github.com/kyleratti/tuckbot-frontend/workflows/Build%20and%20Deploy/badge.svg)
+![CI/CD](https://github.com/kyleratti/tuckbot-frontend/workflows/CI/CD/badge.svg)
 
 https://tuckbot.tv/
 
