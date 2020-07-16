@@ -25,7 +25,7 @@ jobs:
           npm run build
           ls ./
       - name: Save build 📨
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: build
           path: |
@@ -49,14 +49,14 @@ jobs:
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: Retrieve build 📨
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: build
       - name: Prerender SPA 🔶➡️🔶
         run: |
           npm run predeploy
       - name: Save dist 📨
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: prerender
           path: |
@@ -67,7 +67,7 @@ jobs:
     needs: [prerender]
     steps:
       - name: Retrieve dist 📨
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v2
         with:
           name: prerender
       - name: Deploy 🚀
