@@ -1,6 +1,6 @@
 import { config } from "../../config";
 
-const API_ROOT = `${config.tuckbot.api.url}/public/video`;
+const PUBLIC_API_ROOT = `${config.tuckbot.api.url}/public/video`;
 
 export interface VideoResponse {
   redditPostId: string;
@@ -9,7 +9,7 @@ export interface VideoResponse {
 }
 
 export async function fetchVideo(redditPostId: string): Promise<VideoResponse> {
-  const res = await fetch(`${API_ROOT}/${redditPostId}`, {
+  const res = await fetch(`${PUBLIC_API_ROOT}/${redditPostId}`, {
     method: "GET",
   });
 
