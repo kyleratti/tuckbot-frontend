@@ -8,7 +8,7 @@ type TuckImageProps = {
 const TuckImage: React.FC<TuckImageProps> = ({ photo, children }) => (
   <div className="tuckImage">
     <a href={photo.original}>
-      <img src={photo.thumbnail} alt={photo.alt} />
+      <img src={photo.thumbnail} alt={photo.alt} loading="lazy" />
     </a>
     {photo.caption && <div className="caption">{photo.caption}</div>}
     {children && <p>{children}</p>}
