@@ -12,18 +12,18 @@ const isDev = process.env["NODE_ENV"] === "development";
 dotenv.config();
 
 const PUBLIC_PATH = "/";
-const API_SERVER_ROOT = process.env.API_SERVER_ROOT;
-const GOOGLE_ANALYTICS_TRACKING_ID = process.env.GOOGLE_ANALYTICS_TRACKING_ID;
+const TUCKBOT_API_URL = process.env.TUCKBOT_API_URL;
+const TUCKBOT_GOOGLE_ANALYTICS_ID = process.env.TUCKBOT_GOOGLE_ANALYTICS_ID;
 const SRC = resolve("src");
 const DIST = resolve("dist");
 
 console.log("Webpack build", isDev ? "[development]" : "[production]");
-console.log("Targeting API server at", API_SERVER_ROOT);
-console.log("Google Analytics Tracking ID is ", GOOGLE_ANALYTICS_TRACKING_ID);
+console.log("Targeting API server at", TUCKBOT_API_URL);
+console.log("Google Analytics Tracking ID is ", TUCKBOT_GOOGLE_ANALYTICS_ID);
 
-if (!API_SERVER_ROOT) console.warn("API_SERVER_ROOT not defined");
-if (!GOOGLE_ANALYTICS_TRACKING_ID)
-  console.warn("GOOGLE_ANALYTICS_TRACKING_ID not defined");
+if (!TUCKBOT_API_URL) console.warn("TUCKBOT_API_URL not defined");
+if (!TUCKBOT_GOOGLE_ANALYTICS_ID)
+  console.warn("TUCKBOT_GOOGLE_ANALYTICS_ID not defined");
 
 module.exports = {
   mode: isDev ? "development" : "production",
@@ -106,11 +106,11 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify(isDev ? "development" : "production"),
+        TUCKBOT_API_URL: JSON.stringify(TUCKBOT_API_URL),
+        TUCKBOT_GOOGLE_ANALYTICS_ID: JSON.stringify(
+          TUCKBOT_GOOGLE_ANALYTICS_ID
+        ),
       },
-      API_SERVER_ROOT: JSON.stringify(API_SERVER_ROOT),
-      GOOGLE_ANALYTICS_TRACKING_ID: JSON.stringify(
-        GOOGLE_ANALYTICS_TRACKING_ID
-      ),
     }),
 
     new HtmlWebpackPlugin({

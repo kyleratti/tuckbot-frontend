@@ -1,4 +1,6 @@
-const API_ROOT = `${API_SERVER_ROOT}/public/video`;
+import { config } from "../../config";
+
+const PUBLIC_API_ROOT = `${config.tuckbot.api.url}/public/video`;
 
 export interface VideoResponse {
   redditPostId: string;
@@ -7,8 +9,8 @@ export interface VideoResponse {
 }
 
 export async function fetchVideo(redditPostId: string): Promise<VideoResponse> {
-  const res = await fetch(`${API_ROOT}/${redditPostId}`, {
-    method: "GET"
+  const res = await fetch(`${PUBLIC_API_ROOT}/${redditPostId}`, {
+    method: "GET",
   });
 
   if (res.status !== 200) {
@@ -29,7 +31,7 @@ export async function fetchVideo(redditPostId: string): Promise<VideoResponse> {
     return {
       redditPostId: result.data.redditPostId,
       redditPostTitle: result.data.redditPostTitle,
-      mirrorUrl: result.data.mirrorUrl
+      mirrorUrl: result.data.mirrorUrl,
     };
   } catch (e) {
     throw new Error("Server returned an invalid result.");

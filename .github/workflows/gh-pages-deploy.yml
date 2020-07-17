@@ -7,6 +7,7 @@ on:
       - "package.json"
       - "package-lock.json"
       - "webpack.config.js"
+      - ".github/workflows/**"
   pull_request:
     branches: [master]
     paths:
@@ -14,10 +15,12 @@ on:
       - "package.json"
       - "package-lock.json"
       - "webpack.config.js"
+      - ".github/workflows/**"
 env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NODE_ENV: PRODUCTION
-  API_SERVER_ROOT: ${{ secrets.API_SERVER_ROOT }}
-  GOOGLE_ANALYTICS_TRACKING_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
+  TUCKBOT_API_URL: ${{ secrets.TUCKBOT_API_URL }}
+  TUCKBOT_GOOGLE_ANALYTICS_ID: ${{ secrets.TUCKBOT_GOOGLE_ANALYTICS_ID }}
 jobs:
   build:
     runs-on: ubuntu-latest
