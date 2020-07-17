@@ -1,4 +1,6 @@
-const API_ROOT = `${process.env.API_SERVER_ROOT}/public/video`;
+import { config } from "../../config";
+
+const API_ROOT = `${config.tuckbot.api.url}/public/video`;
 
 export interface VideoResponse {
   redditPostId: string;

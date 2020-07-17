@@ -16,8 +16,8 @@ on:
       - "webpack.config.js"
 env:
   NODE_ENV: PRODUCTION
-  API_SERVER_ROOT: ${{ secrets.API_SERVER_ROOT }}
-  GOOGLE_ANALYTICS_TRACKING_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
+  TUCKBOT_API_URL: ${{ secrets.TUCKBOT_API_URL }}
+  TUCKBOT_GOOGLE_ANALYTICS_ID: ${{ secrets.TUCKBOT_GOOGLE_ANALYTICS_ID }}
 jobs:
   build:
     runs-on: ubuntu-latest

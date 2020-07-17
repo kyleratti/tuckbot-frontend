@@ -41,6 +41,7 @@
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
+    "@kyleratti/configurator": "^3.0.0",
     "@types/image-thumbnail": "^1.0.0",
     "@types/minimist": "^1.2.0",
     "@types/react": "^16.9.43",
