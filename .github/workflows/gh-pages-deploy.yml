@@ -7,6 +7,7 @@ on:
       - "package.json"
       - "package-lock.json"
       - "webpack.config.js"
+      - ".github/workflows/**"
   pull_request:
     branches: [master]
     paths:
@@ -14,6 +15,7 @@ on:
       - "package.json"
       - "package-lock.json"
       - "webpack.config.js"
+      - ".github/workflows/**"
 env:
   NODE_ENV: PRODUCTION
   TUCKBOT_API_URL: ${{ secrets.TUCKBOT_API_URL }}
