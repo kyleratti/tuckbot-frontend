@@ -7,6 +7,13 @@ on:
       - "package.json"
       - "package-lock.json"
       - "webpack.config.js"
+  pull_request:
+    branches: [master]
+    paths:
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+      - "webpack.config.js"
 env:
   NODE_ENV: PRODUCTION
   API_SERVER_ROOT: ${{ secrets.API_SERVER_ROOT }}
