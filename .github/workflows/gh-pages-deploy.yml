@@ -42,6 +42,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
   prerender:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     needs: [build]
     steps:
       - name: Cache dependencies 💾
