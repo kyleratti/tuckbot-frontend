@@ -35,7 +35,7 @@ jobs:
       - name: Build 🔨
         run: |
           npm run build
-      -name: Semantic release
+      - name: Semantic release
         if: github.ref == 'refs/heads/master'
         run: npx semantic-release
       - name: Save build 📨
