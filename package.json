@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist",
     "generate-thumbs": "ts-node-dev --cls tools/generate-thumbs.ts",
     "remove-exif": "ts-node-dev --cls tools/remove-exif.ts",
+    "semantic-release": "semantic-release",
     "serve": "npx http-server ./dist"
   },
   "reactSnap": {
@@ -44,7 +45,7 @@
     "@kyleratti/configurator": "^3.0.3",
     "@types/image-thumbnail": "^1.0.0",
     "@types/minimist": "^1.2.0",
-    "@types/react": "^16.9.43",
+    "@types/react": "^16.9.45",
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@webpack-cli/serve": "^0.2.0",
@@ -61,13 +62,14 @@
     "react-snap": "^1.23.0",
     "sass": "^1.26.10",
     "sass-loader": "^8.0.2",
+    "semantic-release": "^17.1.1",
     "source-map-loader": "^1.0.1",
     "style-loader": "^1.2.1",
-    "ts-loader": "^8.0.1",
+    "ts-loader": "^8.0.2",
     "ts-node": "^8.10.2",
-    "ts-node-dev": "^1.0.0-pre.52",
+    "ts-node-dev": "^1.0.0-pre.56",
     "typescript": "^3.9.7",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }

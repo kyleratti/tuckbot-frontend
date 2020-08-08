@@ -35,6 +35,7 @@ jobs:
       - name: Build 🔨
         run: |
           npm run build
+          npx semantic-release
       - name: Save build 📨
         uses: actions/upload-artifact@v2
         with:
