@@ -14,6 +14,8 @@ const ContactPage: React.FunctionComponent = () => (
         You are free to re-post or share links to any pages on this website.
       </p>
 
+      <p>Please note we are unable to locate any videos for you.</p>
+
       <dl className="inline-list">
         <dt>General Inquiries</dt>
         <dd>
