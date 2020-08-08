@@ -1,7 +1,7 @@
 import * as React from "react";
 import PageContainer from "../../components/PageContainer";
 
-const ContactPage: React.FunctionComponent = () => (
+const ContactPage: React.FC = () => (
   <PageContainer>
     <div className="contactPage">
       <p>
