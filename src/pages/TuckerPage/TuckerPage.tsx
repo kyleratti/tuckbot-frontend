@@ -48,7 +48,7 @@ const photos = {
   }),
   polaroid: makePhotoObject({
     img: "tuck-polaroid.jpg",
-    alt: "Tucker sitting in his crate with his duck, smiling for hte camera",
+    alt: "Tucker sitting in his crate with his duck, smiling for the camera",
   }),
   yawn: makePhotoObject({ img: "tuck-yawn2.jpg", alt: "Tucker yawning" }),
 };
