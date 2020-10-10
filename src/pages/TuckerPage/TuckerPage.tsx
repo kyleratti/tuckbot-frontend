@@ -5,8 +5,6 @@ import TuckImage from "./components/TuckImage";
 import { Photo } from "./photo";
 
 const TUCKER_BIRTHDAY = 1456790400;
-const TUCKER_BIRTHDAY_DIFF = Math.floor(Date.now() / 1000) - TUCKER_BIRTHDAY;
-const TUCKER_AGE = Math.floor(TUCKER_BIRTHDAY_DIFF / (60 * 60 * 24 * 365));
 
 type PhotoObject = {
   img: string;
@@ -56,6 +54,9 @@ const photos = {
 
 const TuckerPage: React.FC = () => {
   setTitle("Hi!");
+
+  const TUCKER_BIRTHDAY_DIFF = Math.floor(Date.now() / 1000) - TUCKER_BIRTHDAY;
+  const TUCKER_AGE = Math.floor(TUCKER_BIRTHDAY_DIFF / (60 * 60 * 24 * 365));
 
   return (
     <PageContainer>
