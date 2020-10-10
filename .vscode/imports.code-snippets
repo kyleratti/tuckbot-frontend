@@ -1,0 +1,14 @@
+{
+  "React": {
+    "prefix": ["imreact"],
+    "description": "import React from \"react\"",
+    "body": "import React from \"react\";",
+    "scope": "typescript,typescriptreact,javascript"
+  },
+  "HTTP Status Codes import": {
+    "description": "Imports the HttpStatusCodes module",
+    "prefix": ["httpcodes"],
+    "body": "import HttpStatusCode from \"http-status-codes\";",
+    "scope": "typescript,javascript"
+  }
+}

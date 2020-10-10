@@ -1,5 +1,12 @@
 import * as React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
+import RedirectExternal from "./components/RedirectExternal";
+import { config } from "./config";
+import AdminDashboardPage from "./pages/Admin/DashboardPage";
+import AdminLoginPage from "./pages/Admin/LoginPage";
+import AdminLogoutPage from "./pages/Admin/LogoutPage";
+import AdminReceiveTokenPage from "./pages/Admin/ReceiveTokenPage";
+import AdminVideosPage from "./pages/Admin/VideosPage";
 import ContactPage from "./pages/ContactPage";
 import EmbedVideoPage from "./pages/EmbedVideoPage";
 import HomePage from "./pages/HomePage";
@@ -25,6 +32,29 @@ const Routes: React.FunctionComponent = () => (
       component={() => <RandomPage embed={true} />}
     />
     <Route path="/embed/:redditPostId" exact component={EmbedVideoPage} />
+
+    {/* BEGIN: Admin Routes */}
+    <Route
+      path="/admin"
+      exact
+      render={() => <Redirect to="/admin/dashboard" />}
+    />
+    <Route path="/admin/dashboard" exact component={AdminDashboardPage} />
+    <Route path="/admin/videos" exact component={AdminVideosPage} />
+
+    <Route path="/admin/login" exact component={AdminLoginPage} />
+    <Route
+      path="/admin/login/handoff"
+      exact
+      render={() => (
+        <RedirectExternal
+          to={`${config.tuckbot.api.url}/v2/admin/login/handoff`}
+        />
+      )}
+    />
+    <Route path="/admin/login/token/:token" component={AdminReceiveTokenPage} />
+    <Route path="/admin/logout" exact component={AdminLogoutPage} />
+    {/* END: Admin Routes */}
 
     <Redirect to="/" />
   </Switch>

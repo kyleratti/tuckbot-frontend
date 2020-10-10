@@ -1,6 +1,5 @@
 import * as React from "react";
-
-import { VideoResponse, fetchVideo } from "./api";
+import { fetchVideo, VideoResponse } from "./api";
 
 export interface RedditVideoHookData {
   isLoading: boolean;
@@ -37,6 +36,6 @@ export function useRedditVideo(redditPostId: string): RedditVideoHookData {
   return {
     isLoading,
     errorMessage,
-    videoResponse
+    videoResponse,
   };
 }
