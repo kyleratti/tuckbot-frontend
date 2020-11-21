@@ -11,7 +11,7 @@ const VideoTitle: React.FC<Props> = ({ title, redditPostId }) => (
     <h2>
       {title}{" "}
       <small>
-        via <a href={"https://reddit.com/" + redditPostId}>reddit</a>
+        via <a href={"https://reddit.com/" + redditPostId}>reddit</a>{" "}
       </small>
     </h2>
   </div>

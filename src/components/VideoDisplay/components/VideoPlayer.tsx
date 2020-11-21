@@ -8,12 +8,7 @@ export interface VideoPlayerProps {
 type Props = VideoPlayerProps;
 const VideoPlayer: React.FC<Props> = ({ mirrorUrl }) => (
   <div className="videoPlayer">
-    <video
-      controls
-      poster={poster}
-      src={mirrorUrl}
-      controlsList="nodownload"
-    ></video>
+    <video controls poster={poster} src={mirrorUrl}></video>
   </div>
 );
 

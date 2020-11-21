@@ -3,6 +3,7 @@ import { setTitle } from "../../services/title/hooks";
 import { useRedditVideo } from "../../services/video/hooks";
 import Loading from "../Loading";
 import EmbeddedVideoPlayer from "./components/EmbeddedVideoPlayer";
+import { VideoDownload } from "./components/VideoDownload";
 import VideoPlayer from "./components/VideoPlayer";
 import VideoTitle from "./components/VideoTitle";
 
@@ -38,6 +39,7 @@ const VideoDisplay: React.FunctionComponent<Props> = ({
       <React.Fragment>
         <VideoTitle title={redditPostTitle} redditPostId={redditPostId} />
         <VideoPlayer mirrorUrl={mirrorUrl} />
+        <VideoDownload mirrorUrl={mirrorUrl} />
       </React.Fragment>
     );
   } else {
