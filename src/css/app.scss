@@ -4,11 +4,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  &:active,
-  &:focus {
-    outline: 2px solid $primary;
-  }
 }
 body {
   font-family: "Courier New", Courier, monospace;
@@ -27,6 +22,14 @@ h1 {
 
 h2 {
   font-size: 1em;
+}
+
+video,
+a {
+  &:active,
+  &:focus {
+    outline: 2px solid $primary;
+  }
 }
 
 #watch-videoArea {
