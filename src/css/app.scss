@@ -53,6 +53,12 @@ a {
   }
 }
 
+#watch-videoTitle,
+#watch-videoData {
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
 #watch-videoTitle {
   box-shadow: 5px 5px 0px 0px $primary;
   color: $primary;
