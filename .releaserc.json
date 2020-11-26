@@ -1,11 +1,47 @@
 {
   "plugins": [
-    "@semantic-release/commit-analyzer",
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular",
+        "releaseRules": [
+          { "type": "build", "scope": "deps", "release": "patch" }
+        ]
+      }
+    ],
     "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
     [
       "@semantic-release/git",
       {
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": [
+          {
+            "path": "bin/tscw-daemon.bin",
+            "name": "tscw-daemon-<%- nextRelease.version %>-linux-x64"
+          },
+          {
+            "path": "bin/tscw-daemon",
+            "name": "tscw-daemon-<%- nextRelease.version %>-macos.bin"
+          },
+          {
+            "path": "bin/tscw-daemon.exe",
+            "name": "tscw-daemon-<%- nextRelease.version %>-win-x86.exe"
+          },
+          {
+            "path": "config.example.json"
+          }
+        ]
       }
     ]
   ]
