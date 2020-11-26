@@ -21,28 +21,6 @@
       {
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
-    ],
-    [
-      "@semantic-release/github",
-      {
-        "assets": [
-          {
-            "path": "bin/tscw-daemon.bin",
-            "name": "tscw-daemon-<%- nextRelease.version %>-linux-x64"
-          },
-          {
-            "path": "bin/tscw-daemon",
-            "name": "tscw-daemon-<%- nextRelease.version %>-macos.bin"
-          },
-          {
-            "path": "bin/tscw-daemon.exe",
-            "name": "tscw-daemon-<%- nextRelease.version %>-win-x86.exe"
-          },
-          {
-            "path": "config.example.json"
-          }
-        ]
-      }
     ]
   ]
 }
