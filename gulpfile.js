@@ -64,14 +64,17 @@ gulp.task(
 gulp.task("default", gulp.series("clean", "build"));
 
 gulp.task("minify-js", function () {
-  return gulp.src("dist/assets/js/*.js").pipe(terser()).pipe(gulp.dest("dist"));
+  return gulp
+    .src("dist/assets/js/*.js")
+    .pipe(terser({ sourceMap: false }))
+    .pipe(gulp.dest("dist/assets/js"));
 });
 
 gulp.task("minify-css", function () {
   return gulp
     .src("dist/assets/css/*.css")
     .pipe(cleanCSS())
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest("dist/assets/css"));
 });
 
 gulp.task("minify-html", function () {
