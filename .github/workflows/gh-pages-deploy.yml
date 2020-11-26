@@ -37,35 +37,14 @@ jobs:
       - name: Minify code
         if: github.ref == 'refs/heads/master'
         run: npm run minify
-      - name: Semantic release
+      - name: Release
         if: github.ref == 'refs/heads/master'
         run: npx semantic-release
-      - name: Save build 📨
-        if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v2
-        with:
-          name: build
-          path: |
-            dist/
-  deploy:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    needs: [build]
-    steps:
-      - name: Retrieve dist 📨
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: dist/
       - name: Deploy 🚀
+        if: github.ref == 'refs/heads/master'
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: dist
           CLEAN: true
-      - name: Clean up build artifacts 🧹
-        uses: geekyeggo/delete-artifact@v1
-        with:
-          name: |
-            build
