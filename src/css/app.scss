@@ -1,300 +1,95 @@
-@import "./variables";
-@import "./layout";
+@import "./colors.scss";
 
-body {
-  height: 100%;
+* {
+  box-sizing: border-box;
   margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background: $colorBackground;
-
-  font-family: "Courier New", Courier, monospace;
-  color: $colorPrimary;
-  place-items: center;
-}
-
-h2 small {
-  font-size: 0.7em;
-  font-weight: normal;
-}
-
-a,
-a:visited {
-  color: $colorLinks;
-  font-weight: bold;
-  text-decoration: none;
-
-  text-transform: uppercase;
-}
-
-a:hover {
-  color: $colorSecondary;
-  text-align: center;
-  text-decoration: underline;
-}
-
-.videoTitle h2 {
-  color: $colorPrimary;
-  margin: 0.25em;
-  font-size: 2.5vh;
-}
-
-.inline-list {
-  list-style-type: none;
   padding: 0;
-}
 
-.inline-list li {
-  display: inline-block;
-  margin: 0.5em;
-}
-
-.inline-list dt:before {
-  content: "";
-  display: block;
-}
-.inline-list dt,
-.inline-list dd {
-  display: inline;
-}
-
-.inline-list dt:after {
-  content: ":";
-}
-
-.inline-list dd {
-  margin-left: 0.75em;
-}
-
-.label {
-  background-color: black;
-  border: 0.05em solid white;
-  color: white;
-  padding: 0 0.1em;
-  font-weight: normal;
-}
-
-.label {
-  .alt {
-    color: black;
-    padding-left: 2px;
-    padding-right: 2px;
-    font-weight: bold;
-    background-color: white;
-    margin: 0.1em;
+  &:active,
+  &:focus {
+    outline: 2px solid $primary;
   }
 }
-
-video {
-  min-width: 150px;
-  min-height: 150px;
-  max-width: 85%;
-  max-height: 70vh;
-  background-color: lighten($colorBackground, 10%);
-  object-fit: contain;
-}
-
-video:not(:fullscreen) {
-  border: 1px solid rgba($colorSecondary, 0.5);
-}
-
-#main {
-  //display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#tuckie-boy {
-  cursor: grab;
-
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-
-header,
-footer {
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: $background;
+  color: $primary;
+  text-transform: lowercase;
+  margin: 0 auto;
   text-align: center;
+  max-width: 100%;
+  width: 100%;
 }
 
-header {
-  width: 100%;
-  letter-spacing: 0.2ch;
+h1 {
   text-transform: uppercase;
+}
 
-  div {
+h2 {
+  font-size: 1em;
+}
+
+#watch-videoArea {
+  max-width: 100%;
+  max-height: 85%;
+  margin: 0 auto;
+}
+
+#watch-error {
+  box-shadow: 5px 5px 0px 0px $error;
+  background-color: lighten($error, 45%);
+  color: $error;
+  max-width: 50%;
+  margin: 0 auto;
+
+  &::before {
     display: inline-block;
+    content: "error:";
+    font-weight: bold;
+    margin-right: 1ch;
+  }
+}
+
+#watch-videoTitle {
+  box-shadow: 5px 5px 0px 0px $primary;
+  color: $primary;
+  background-color: $background;
+}
+
+#watch-videoPlayer {
+  background-color: black;
+  max-width: 100%;
+  max-height: 70vh;
+  box-shadow: 5px 5px 0px 0px $primary;
+  margin: 1em 0;
+}
+
+#watch-videoData ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+#watch-videoData ul li a {
+  &,
+  &:visited {
+    color: white;
   }
 
-  .siteTitle {
-    margin-right: 0.5em;
-  }
-
-  .siteTitle h1 {
-    background: linear-gradient(to right, rgb(45, 226, 230), rgb(255, 56, 100));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  #tuckie-boy {
-    background: none;
-    background-clip: unset;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: white;
-  }
-
-  .siteComment {
-    font-size: 1.7em;
-    color: $colorSecondary;
-  }
-
-  nav {
-    font-size: 0.85em;
-  }
-
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  nav ul li {
-    display: inline;
-  }
-
-  nav ul li:not(:first-child) {
-    margin-left: 1em;
-  }
-
-  nav ul li::before {
-    content: ">";
+  &:hover,
+  &:active {
+    color: $primary;
   }
 }
 
 footer {
-  margin: 1em;
-  font-size: 0.8em;
+  text-align: right;
 }
 
-.content {
-  text-align: center;
+.hidden {
+  display: none;
 }
 
-video:focus {
-  outline: none;
-}
-
-.dot-tv {
-  font-size: 0.7em;
-  font-weight: bold;
-  letter-spacing: normal;
-  color: rgba($colorPrimary, 0.6);
-}
-
-.loader {
-  border: 0.5em solid #f3f3f3;
-  border-top: 0.5em solid $colorPrimary;
-  border-right: 0.5em solid $colorSecondary;
-  border-bottom: 0.5em solid $colorLinks;
-  border-left: 0.5em solid $colorFour;
-  border-radius: 50%;
-  width: 2.5em;
-  height: 2.5em;
-  animation: spin 2s linear infinite;
-  margin: 1em auto;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.bold {
-  font-weight: bold;
-}
-
-dt {
-  font-weight: bold;
-
-  dt,
-  h2 small {
-    white-space: nowrap;
-  }
-}
-
-.contactPage {
-  p {
-    text-align: center;
-  }
-}
-
-.imageGrid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.imageGrid > div {
-  margin: 1em;
-}
-
-.tuckImage {
-  position: relative;
-  width: 350px;
-  height: 250px;
-  background-color: black;
-}
-
-.tuckImage .caption {
-  position: absolute;
-  background: rgba($colorLinks, 0.85);
-  font-size: 0.85em;
-  font-weight: bold;
-  width: 100%;
-  height: 1em;
-  padding: 0.1em;
-  bottom: 0;
-  left: 0%;
-  justify-content: center;
-}
-
-.tuckImage p {
-  display: inline;
-  margin-left: 0.5em;
-  vertical-align: top;
-}
-
-@media (max-width: 1024px) {
-  header {
-    .siteComment {
-      font-size: 1.05em;
-    }
-  }
-
-  h1 {
-    font-size: 1.2em;
-  }
-
-  .videoTitle h2 {
-    font-size: 1em;
-  }
-
-  .videoTitle {
-    margin-bottom: 1em;
-  }
-
-  .inline-list {
-    font-size: 0.85em;
-  }
-}
-
-#download {
-  font-size: 0.8em;
+.page {
+  padding: 1em;
 }
