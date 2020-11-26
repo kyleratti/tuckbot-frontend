@@ -11,6 +11,7 @@ const paths = {
 const terser = require("gulp-terser");
 const run = require("gulp-run");
 const cleanCSS = require("gulp-clean-css");
+const htmlmin = require("gulp-htmlmin");
 
 const browserBuild = browserify({
   basedir: ".",
@@ -73,7 +74,14 @@ gulp.task("minify-css", function () {
     .pipe(gulp.dest("dist"));
 });
 
-gulp.task("minify", gulp.parallel("minify-js", "minify-css"));
+gulp.task("minify-html", function () {
+  return gulp
+    .src("dist/*.html")
+    .pipe(htmlmin({ collapseWhitespace: true, removeComments: true }))
+    .pipe(gulp.dest("dist"));
+});
+
+gulp.task("minify", gulp.parallel("minify-js", "minify-css", "minify-html"));
 
 gulp.task(
   "watch",
