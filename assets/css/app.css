@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+  *:active, *:focus {
+    outline: 2px solid #00cc00; }
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #1f1f1f;
+  color: #00cc00;
+  text-transform: lowercase;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+  width: 100%; }
+
+h1 {
+  text-transform: uppercase; }
+
+h2 {
+  font-size: 1em; }
+
+#watch-videoArea {
+  max-width: 100%;
+  max-height: 85%;
+  margin: 0 auto; }
+
+#watch-error {
+  box-shadow: 5px 5px 0px 0px #cc0000;
+  background-color: #ffb3b3;
+  color: #cc0000;
+  max-width: 50%;
+  margin: 0 auto; }
+  #watch-error::before {
+    display: inline-block;
+    content: "error:";
+    font-weight: bold;
+    margin-right: 1ch; }
+
+#watch-videoTitle {
+  box-shadow: 5px 5px 0px 0px #00cc00;
+  color: #00cc00;
+  background-color: #1f1f1f; }
+
+#watch-videoPlayer {
+  background-color: black;
+  max-width: 100%;
+  max-height: 70vh;
+  box-shadow: 5px 5px 0px 0px #00cc00;
+  margin: 1em 0; }
+
+#watch-videoData ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none; }
+
+#watch-videoData ul li a, #watch-videoData ul li a:visited {
+  color: white; }
+
+#watch-videoData ul li a:hover, #watch-videoData ul li a:active {
+  color: #00cc00; }
+
+footer {
+  text-align: right; }
+
+.hidden {
+  display: none; }
+
+.page {
+  padding: 1em; }
