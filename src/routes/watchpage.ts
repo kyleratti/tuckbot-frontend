@@ -49,8 +49,6 @@ export const WatchPage: PageEventCallback = async (pageName, queryString) => {
           (_evnt) => {
             videoPlayer.width = videoPlayer.videoWidth;
             videoPlayer.height = videoPlayer.videoHeight;
-            videoArea.style.width = `${videoPlayer.videoWidth}px`;
-            videoArea.style.height = `${videoPlayer.videoHeight}px`;
 
             showElements([videoArea]);
           },
