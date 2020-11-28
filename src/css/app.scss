@@ -32,6 +32,10 @@ a {
   }
 }
 
+#maintenance .actionArea {
+  @include actionBox(blue);
+}
+
 #watch-videoArea {
   max-width: 100%;
   max-height: 85%;
@@ -39,9 +43,7 @@ a {
 }
 
 #watch-error {
-  box-shadow: 5px 5px 0px 0px $error;
-  background-color: lighten($error, 45%);
-  color: $error;
+  @include actionBox($error);
   max-width: 50%;
   margin: 0 auto;
 
@@ -60,16 +62,16 @@ a {
 }
 
 #watch-videoTitle {
-  box-shadow: 5px 5px 0px 0px $primary;
+  @include actionBox($primary);
   color: $primary;
   background-color: $background;
 }
 
 #watch-videoPlayer {
-  background-color: black;
   max-width: 100%;
   max-height: 70vh;
-  box-shadow: 5px 5px 0px 0px $primary;
+  @include actionBox($primary);
+  background-color: black;
   margin: 1em 0;
 }
 

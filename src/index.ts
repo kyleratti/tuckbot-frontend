@@ -1,7 +1,8 @@
-import { Page, RouteParser } from "./routes";
+import { Page, RouteParser, setNewHashLocation } from "./routes";
 import { WatchPage } from "./routes/watchpage";
 
 const parser = new RouteParser();
+const UNDER_MAINTENANCE = false;
 
 const hideAllPages = () => {
   const pageElements = document.getElementsByClassName("page");
@@ -14,8 +15,17 @@ const hideAllPages = () => {
 const run = () => {
   hideAllPages();
 
-  parser.onPageLoaded(Page.Watch, WatchPage);
-  parser.onPageLoaded(Page.Embed, WatchPage);
+  if (UNDER_MAINTENANCE) {
+    for (const key of Object.keys(Page)) {
+      if (key !== Page.Maintenance)
+        parser.onPageLoaded(key as Page, () => {
+          setNewHashLocation("maintenance");
+        });
+    }
+  } else {
+    parser.onPageLoaded(Page.Watch, WatchPage);
+    parser.onPageLoaded(Page.Embed, WatchPage);
+  }
 
   parser.ready();
 };

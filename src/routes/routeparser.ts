@@ -1,7 +1,8 @@
 export enum Page {
-  Index = "",
+  Index = "index",
   Watch = "watch",
   Embed = "embed",
+  Maintenance = "maintenance",
 }
 
 export enum PageEvent {
@@ -10,7 +11,7 @@ export enum PageEvent {
 }
 
 type PageEventManager = {
-  [eventName in PageEvent]?: PageEventCallbackManager;
+  [key: string]: PageEventCallbackManager;
 };
 
 export type PageEventCallback = (
@@ -18,9 +19,10 @@ export type PageEventCallback = (
   queryString: string
 ) => void | Promise<void> | undefined | Promise<undefined>;
 type PageLoadedCallback = PageEventCallback;
+type PageUnloadedCallback = PageEventCallback;
 
 type PageEventCallbackManager = {
-  [pageName in Page]?: PageEventCallback[];
+  [eventName in PageEvent]?: PageEventCallback[];
 };
 
 type HashLocation = {
@@ -38,12 +40,15 @@ export class RouteParser {
 
   constructor() {
     this.m_currentPage = this.parseHashLocation().page;
+
+    this.addPageLoadVisiblityRules();
+    this.bootstrapRouteChange();
   }
 
   private parseHashLocation = () => {
     const url = location.hash.substring(2); // location.hash always starts with "#/", so we start at index 1
     const splitUrl = url.split("/");
-    const page = splitUrl[0].toLowerCase();
+    const page = splitUrl[0].toLowerCase() || Page.Index;
     const queryString = splitUrl.slice(1);
 
     return {
@@ -52,33 +57,45 @@ export class RouteParser {
     } as HashLocation;
   };
 
+  private togglePageVisibility = (page: Page, visible?: boolean) => {
+    console.log(
+      `toggling visiblity for ${page.toLowerCase()} visible: ${visible}`
+    );
+    const pageElements = document.querySelectorAll(
+      `[data-page='${page.toLowerCase()}']`
+    );
+
+    pageElements.forEach((element) =>
+      element.classList.toggle("hidden", !visible)
+    );
+  };
+
   private dispatchEvents = (pageEvent: PageEvent, page: Page) => {
-    if (
-      !this.m_eventHandler[pageEvent] ||
-      !this.m_eventHandler[pageEvent]![page]
-    ) {
+    if (!this.m_eventHandler[page] || !this.m_eventHandler[page]![pageEvent]) {
       console.warn(`no events to dispatch for ${pageEvent}:${page}`);
       return;
     }
 
-    this.m_eventHandler[pageEvent]![page]?.forEach((callback) =>
+    this.m_eventHandler[page]![pageEvent]?.forEach((callback) =>
       callback(page, this.parseHashLocation().queryString)
     );
   };
 
-  private handleRouteEvents = () => {
-    const handleChange = () => {
-      const hashLocation = this.parseHashLocation();
+  private onUrlChange = (firstRun?: boolean) => {
+    const hashLocation = this.parseHashLocation();
 
-      if (this.currentPage) {
-        this.dispatchEvents(PageEvent.PageUnloaded, this.currentPage);
-      }
+    console.log(`dispatching events for ${hashLocation.page}`);
 
-      this.m_currentPage = hashLocation.page;
-      this.dispatchEvents(PageEvent.PageLoaded, this.currentPage);
-    };
+    if (!firstRun && this.currentPage) {
+      this.dispatchEvents(PageEvent.PageUnloaded, this.currentPage);
+    }
 
-    window.onhashchange = handleChange;
+    this.m_currentPage = hashLocation.page;
+    this.dispatchEvents(PageEvent.PageLoaded, this.currentPage);
+  };
+
+  private bootstrapRouteChange = () => {
+    window.onhashchange = () => this.onUrlChange();
   };
 
   private on = (
@@ -86,31 +103,47 @@ export class RouteParser {
     page: Page,
     callback: PageEventCallback
   ) => {
-    this.m_eventHandler[pageEvent] ??= {};
-    this.m_eventHandler[pageEvent]![page] ??= [];
+    const pageName = page.toLowerCase();
+    this.m_eventHandler[pageName] ??= {};
+    this.m_eventHandler[pageName]![pageEvent] ??= [];
 
-    this.m_eventHandler[pageEvent]![page]!.push(callback);
-  };
-
-  private resetPageVisibility = (page: Page) => {
-    const pageElements = document.getElementsByClassName("page");
-    for (let pageElement of pageElements) {
-      if (pageElement.id.toLowerCase() === page)
-        pageElement.classList.remove("hidden");
-      else pageElement.classList.add("hidden");
-    }
+    this.m_eventHandler[pageName]![pageEvent]!.push(callback);
   };
 
   onPageLoaded = (page: Page, callback: PageLoadedCallback) => {
-    this.on(PageEvent.PageLoaded, page, () => {
-      this.resetPageVisibility(page);
-      callback(page, this.parseHashLocation().queryString);
-    });
+    this.on(PageEvent.PageLoaded, page, () =>
+      callback(page, this.parseHashLocation().queryString)
+    );
+  };
+
+  onPageUnloaded = (page: Page, callback: PageUnloadedCallback) => {
+    this.on(PageEvent.PageUnloaded, page, () =>
+      callback(page, this.parseHashLocation().queryString)
+    );
+  };
+
+  private addPageLoadVisiblityRules = () => {
+    for (let pageName in Page) {
+      let page = pageName as Page;
+      console.log(`adding pageLoadVisibilityRules for ${page}`);
+
+      this.onPageLoaded(page, () => {
+        console.log(`OnLoad[PageVisibility] ${page}`);
+        this.togglePageVisibility(page, true);
+      });
+
+      this.onPageUnloaded(page, () => {
+        console.log(`OnUnload[PageVisibility] ${page}`);
+        this.togglePageVisibility(page, false);
+      });
+
+      console.log(this.m_eventHandler);
+    }
   };
 
   ready = () => {
-    this.handleRouteEvents();
+    console.log("done bootstrapping");
 
-    this.dispatchEvents(PageEvent.PageLoaded, this.parseHashLocation().page);
+    this.onUrlChange(true);
   };
 }

@@ -1,3 +1,9 @@
 $background: rgb(31, 31, 31);
 $primary: darken(lime, 10%);
 $error: darken(red, 10%);
+
+@mixin actionBox($color) {
+  box-shadow: 5px 5px 0px 0px $color;
+  color: $color;
+  background-color: lighten($color, 45%);
+}
