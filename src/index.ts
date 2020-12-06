@@ -2,7 +2,7 @@ import { Page, RouteParser, setNewHashLocation } from "./routes";
 import { WatchPage } from "./routes/watchpage";
 
 const parser = new RouteParser();
-const UNDER_MAINTENANCE = false;
+const UNDER_MAINTENANCE = true;
 
 const hideAllPages = () => {
   const pageElements = document.getElementsByClassName("page");
