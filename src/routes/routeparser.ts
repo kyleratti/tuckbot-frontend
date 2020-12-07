@@ -1,5 +1,6 @@
 export enum Page {
   Index = "index",
+  Contact = "contact",
   Watch = "watch",
   Embed = "embed",
   Maintenance = "maintenance",
