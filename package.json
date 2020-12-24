@@ -1,6 +1,6 @@
 {
   "name": "tuckbot-frontend",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "The frontend for Tuckbot that serves video content to visitors",
   "main": "index.js",
   "scripts": {
