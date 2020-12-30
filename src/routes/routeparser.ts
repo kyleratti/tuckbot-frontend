@@ -93,6 +93,13 @@ export class RouteParser {
 
     this.m_currentPage = hashLocation.page;
     this.dispatchEvents(PageEvent.PageLoaded, this.currentPage);
+
+    const gaId = "G-2NVRKQJGCL";
+    // @ts-expect-error
+    gtag("config", gaId, {
+      page_title: document.title,
+      page_path: location.hash,
+    });
   };
 
   private bootstrapRouteChange = () => {
